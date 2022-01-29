@@ -1,7 +1,23 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
 
+
+<% if user_signed_in? %>
+	<p><%= current_user.email %>, hello</p>
+	<p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
+	<hr style="border:solid 2px #9400D3">
+<% else %>
+	<p><a href="/users/sign_in">login-1</a> &nbsp;
+		<%= link_to "login-2", user_session_path %></p>
+	<hr size="2px">
+<% end %>
+
+<% if user_signed_in? %>
+<p><%= current_user.created_at %></p>
+<% end %>
+
 <a href="/posts/new">new</a>
+<hr style="border:solid 3px #228B22">
 
 <table border="1">
 	<tr>
@@ -11,6 +27,7 @@
 		<th>create time</th>
 		<th>modify time</th>
 		<th>link</th>
+		<th>writer</th>
 	</tr>
 	<% @posts.each do |post| %>
 	<tr>
@@ -19,8 +36,10 @@
 		<td><%= post.content %></td>
 		<td><%= post.created_at %></td>
 		<td><%= post.updated_at %></td>
-		<td><a href="/posts/edit/<%= post.id %>">edit</a>
-		<a href="/posts/destroy/<%= post.id %>">delete</a></td>
+		<td><a href="/posts/show/<%= post.id %>">show</a>
+			<a href="/posts/edit/<%= post.id %>">edit</a>
+			<a href="/posts/destroy/<%= post.id %>">delete</a></td>
+		<td><%= post.writer %></td>
 	</tr>
 	<% end %>
 </table>
