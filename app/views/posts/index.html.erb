@@ -1,2 +1,26 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+
+<a href="/posts/new">new</a>
+
+<table border="1">
+	<tr>
+		<th>id</th>
+		<th>title</th>
+		<th>content</th>
+		<th>create time</th>
+		<th>modify time</th>
+		<th>link</th>
+	</tr>
+	<% @posts.each do |post| %>
+	<tr>
+		<td><%= post.id %></td>
+		<td><%= post.title %></td>
+		<td><%= post.content %></td>
+		<td><%= post.created_at %></td>
+		<td><%= post.updated_at %></td>
+		<td><a href="/posts/edit/<%= post.id %>">edit</a>
+		<a href="/posts/destroy/<%= post.id %>">delete</a></td>
+	</tr>
+	<% end %>
+</table>

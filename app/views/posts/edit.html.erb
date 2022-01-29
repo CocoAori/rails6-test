@@ -1,2 +1,18 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+<h1>
+	edit 1
+</h1>
+<h5>
+	edit 5
+</h5>
+
+<form action="/posts/update/<%= @post.id %>" method="POST">
+	<input name="title" type="text" value="<%= @post.title %>">
+	<br />
+	<textarea name="content"><%= @post.content %></textarea>
+	<button>
+		Edit
+	</button>
+</form>
