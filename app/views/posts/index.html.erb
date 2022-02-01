@@ -38,7 +38,8 @@
 		<td><%= post.updated_at %></td>
 		<td><a href="/posts/show/<%= post.id %>">show</a>
 			<a href="/posts/edit/<%= post.id %>">edit</a>
-			<a href="/posts/destroy/<%= post.id %>">delete</a></td>
+			<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/posts/destroy/<%= post.id %>">delete</a>
+			<!--%= link_to "delete2",xxx, method: :delete, data: { confirm: "Are you sure?"} %></td -->
 		<td><%= post.writer %></td>
 	</tr>
 	<% end %>
