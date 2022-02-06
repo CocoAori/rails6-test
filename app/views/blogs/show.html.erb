@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<h1>
+	Blog
+</h1>
 <p>
   <strong>Title:</strong>
   <%= @blog.title %>
@@ -19,3 +21,29 @@
 <p>
 <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
+<hr />
+
+<h3>
+	comment
+</h3>
+    <% @blog.comments.each_with_index do |comment, index| %>
+      <div>
+		  <p>
+			  <span><%= index+1 %>.</span>
+			  <%= comment.comment %>
+			  <span><%= link_to "delete", [comment.blog, comment], method: :delete, data: { confirm: "delete?"} %></span>			  
+		  </p>
+		  
+ 	 </div>
+    <% end %>
+
+
+
+<hr />
+
+<h3>
+	comment작성
+</h3>
+<%= render 'comments/form' %>
+
+

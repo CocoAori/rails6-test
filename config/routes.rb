@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :blogs
+  resources :blogs do
+	  resources :comments
+  end
+	
   devise_for :users
 	root "posts#index"
   get 'posts/index'
