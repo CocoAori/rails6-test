@@ -2,6 +2,14 @@
 <h1>
 	Blog
 </h1>
+
+<% if user_signed_in? %>
+	<% login_ID = current_user.email %>
+<% else %>
+	<% login_ID = "" %>
+<% end %>
+
+
 <p>
   <strong>Title:</strong>
   <%= @blog.title %>
@@ -30,8 +38,11 @@
       <div>
 		  <p>
 			  <span><%= index+1 %>.</span>
+			  <%= comment.writer %>
 			  <%= comment.comment %>
-			  <span><%= link_to "delete", [comment.blog, comment], method: :delete, data: { confirm: "delete?"} %></span>			  
+			  <% if comment.writer == login_ID %>
+			  <span><%= link_to "delete", [comment.blog, comment], method: :delete, data: { confirm: "delete?"} %></span>
+			  <% end %>
 		  </p>
 		  
  	 </div>

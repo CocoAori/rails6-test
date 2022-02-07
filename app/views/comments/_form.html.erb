@@ -1,10 +1,18 @@
 <%= form_with(model: [@blog, @blog.comments.build]) do |form| %>
+
+	<% if user_signed_in? %>
+		<% login_ID = current_user.email %>
+	<% else %>
+		<% login_ID = "" %>
+	<% end %>
+	<%= form.hidden_field :writer, :value => login_ID %>
+
   <div class="field">
     <%= form.label "댓글" %>
     <%= form.text_field :comment %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "써줭" %>
   </div>
 <% end %>
