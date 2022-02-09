@@ -19591,3 +19591,3127 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 80ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 5742)
 
 
+Started GET "/" for 172.17.0.1 at 2022-02-09 21:44:38 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 7249)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 184ms (Views: 130.1ms | ActiveRecord: 2.2ms | Allocations: 16580)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:44:41 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (1.9ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:21:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 5111)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 15.6ms | ActiveRecord: 2.4ms | Allocations: 11092)
+
+
+Started GET "/blogs/1" for 172.17.0.1 at 2022-02-09 21:45:47 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 1]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 75.3ms | Allocations: 7762)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 104.9ms | Allocations: 12661)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 172ms (Views: 130.3ms | ActiveRecord: 1.9ms | Allocations: 19717)
+
+
+Started DELETE "/blogs/1" for 172.17.0.1 at 2022-02-09 21:45:52 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mfYID3rp354YPCttQ1KWzZ1e1MhIHhKAKOTm3UwVZj/4hZWZBRyx9ytZ4EOmoeHhX+HVzcaQbL2fJlCZBwtnJA==", "id"=>"1"}
+HTTP Origin header (https://rails-t-duelh.run.goorm.io) didn't match request.base_url (http://rails-t-duelh.run.goorm.io)
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms | Allocations: 442)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.0.3.2) lib/action_controller/metal/request_forgery_protection.rb:215:in `handle_unverified_request'
+actionpack (6.0.3.2) lib/action_controller/metal/request_forgery_protection.rb:247:in `handle_unverified_request'
+devise (4.8.1) lib/devise/controllers/helpers.rb:255:in `handle_unverified_request'
+actionpack (6.0.3.2) lib/action_controller/metal/request_forgery_protection.rb:242:in `verify_authenticity_token'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:200:in `block (2 levels) in halting'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:201:in `block in halting'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.3) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.3) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.3) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.2) lib/rack/proxy.rb:67:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/blogs/1" for 172.17.0.1 at 2022-02-09 21:45:58 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlog Load (27.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 1]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.7ms | Allocations: 617)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 8.3ms | ActiveRecord: 27.8ms | Allocations: 6579)
+
+
+Started DELETE "/blogs/1" for 172.17.0.1 at 2022-02-09 21:46:03 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"X53yx8V89FRhXQhENdS75VrLOicAIyKyAovWD12pbkM+7m9RuomaPVI4w2rQJ8zJmHQ7Io6tXI+1SWBLFrdvWA==", "id"=>"1"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  [1m[35m (6.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+  [1m[36mBlog Destroy (0.4ms)[0m  [1m[31mDELETE FROM "blogs" WHERE "blogs"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+  [1m[35m (19.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs
+Completed 302 Found in 36ms (ActiveRecord: 26.5ms | Allocations: 4304)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:46:03 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:21:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1237)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 5567)
+
+
+Started GET "/blogs/6" for 172.17.0.1 at 2022-02-09 21:46:56 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 6]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.1ms | Allocations: 595)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 13.8ms | Allocations: 1616)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.3ms | Allocations: 6480)
+
+
+Started GET "/blogs/6" for 172.17.0.1 at 2022-02-09 21:47:10 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 6]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.6ms | Allocations: 595)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 100ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 6493)
+
+
+Started POST "/blogs/6/comments" for 172.17.0.1 at 2022-02-09 21:47:14 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#create as JS
+  Parameters: {"authenticity_token"=>"6LWpZdkTNlOPKh3Bx+l+ZdVLWuLKQDT7y9DHaSXgfc+JxjTzpuZYOrxP1u8iGglJF/Rb50TOSsZ8EnEtbv581A==", "comment"=>{"writer"=>"", "comment"=>"ty"}, "commit"=>"써줭", "blog_id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "blog_id", "created_at", "updated_at", "writer") VALUES (?, ?, ?, ?, ?)[0m  [["comment", "ty"], ["blog_id", 6], ["created_at", "2022-02-09 21:47:14.632934"], ["updated_at", "2022-02-09 21:47:14.632934"], ["writer", ""]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[35m (17.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs/6
+Completed 200 OK in 27ms (ActiveRecord: 18.0ms | Allocations: 5419)
+
+
+Started GET "/blogs/6" for 172.17.0.1 at 2022-02-09 21:47:14 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 6]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.7ms | Allocations: 595)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1750)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.3ms | Allocations: 6611)
+
+
+Started DELETE "/blogs/6/comments/25" for 172.17.0.1 at 2022-02-09 21:47:19 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OMSdPpmlXtz+mr4bvVJMu8LQ3uHcw3V/+I70LXp+wB5ZtwCo5lAwtc3/dTVYoTuXAG/f5FJNC0JPTEJpMWDBBQ==", "blog_id"=>"6", "id"=>"25"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:13:in `destroy'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["blog_id", 6], ["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:14:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 25]]
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+  [1m[35m (23.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs/6
+Completed 302 Found in 33ms (ActiveRecord: 24.4ms | Allocations: 5063)
+
+
+Started GET "/blogs/6" for 172.17.0.1 at 2022-02-09 21:47:19 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 6]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.2ms | Allocations: 595)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1616)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 6469)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:47:33 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:21:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.2ms | Allocations: 5540)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 21:48:21 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1485)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 5775)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 21:48:23 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 617)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 75.9ms | Allocations: 2626)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 86.6ms | ActiveRecord: 0.6ms | Allocations: 14062)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 21:48:27 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UPRIPtPg99U72KqF3Ut6qnd2Zyn156wJCHSs+SFIDzPxvawWR94JmswKxRpxc1uXoFstnOLUlNMN3nqUjFHacQ==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (61.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1071ms (ActiveRecord: 61.7ms | Allocations: 4926)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 21:48:28 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2337)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 6655)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:48:31 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:21:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.1ms | Allocations: 5590)
+
+
+Started GET "/blogs/6" for 172.17.0.1 at 2022-02-09 21:48:33 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 6]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.5ms | Allocations: 572)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2423)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.3ms | Allocations: 7290)
+
+
+Started DELETE "/blogs/6" for 172.17.0.1 at 2022-02-09 21:48:36 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sMMaQ19s5d8iLnjWgYJ6GBnNeCz/penuscSHLdFmM3qwHOZIQz5J7ybJ70r7SHDgT6DSrEfgEK6uZODF2XdKjg==", "id"=>"6"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+  [1m[36mBlog Destroy (2.4ms)[0m  [1m[31mDELETE FROM "blogs" WHERE "blogs"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+  [1m[35m (16.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs
+Completed 302 Found in 25ms (ActiveRecord: 18.9ms | Allocations: 4237)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:48:36 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (72.8ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:21:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 75.1ms | Allocations: 1124)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 12.6ms | ActiveRecord: 72.8ms | Allocations: 5454)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:52:19 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:21:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1435)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 0.1ms | Allocations: 6798)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 21:59:49 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 96.6ms | Allocations: 12316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 108ms (Views: 104.6ms | ActiveRecord: 0.7ms | Allocations: 17822)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 21:59:52 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+NoMethodError (undefined method `brebore_action' for BlogsController:Class
+Did you mean?  before_action):
+  
+app/controllers/blogs_controller.rb:3:in `<class:BlogsController>'
+app/controllers/blogs_controller.rb:1:in `<main>'
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:00:19 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 12672)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 100ms (Views: 96.3ms | ActiveRecord: 1.8ms | Allocations: 17368)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:00:20 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:76:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 4839)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 106ms (Views: 13.0ms | ActiveRecord: 0.9ms | Allocations: 11375)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 22:00:25 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (86.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 91.4ms | Allocations: 2313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 10.5ms | ActiveRecord: 86.6ms | Allocations: 6613)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:00:27 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:76:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 76.0ms | Allocations: 1122)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 80.1ms | ActiveRecord: 0.3ms | Allocations: 6300)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:00:29 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:76:in `set_writer'
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 5.6ms | Allocations: 1212)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1560)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 102ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 6877)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:00:30 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:76:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1127)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 6314)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 22:00:31 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 6617)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:03:08 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 41.2ms | Allocations: 2306)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 45.2ms | ActiveRecord: 0.3ms | Allocations: 6598)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:03:10 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:76:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1122)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 6308)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 22:04:56 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 101.5ms | Allocations: 12671)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 115ms (Views: 110.6ms | ActiveRecord: 2.2ms | Allocations: 17316)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:05:00 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+NameError (undefined local variable or method `blog_writer' for BlogsController:Class):
+  
+app/controllers/blogs_controller.rb:6:in `<class:BlogsController>'
+app/controllers/blogs_controller.rb:1:in `<main>'
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:05:18 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 97.8ms | Allocations: 12672)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 197ms (Views: 191.2ms | ActiveRecord: 4.3ms | Allocations: 17345)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:05:21 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (16.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:79:in `set_writer'
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 818ms (ActiveRecord: 16.2ms | Allocations: 116589)
+
+
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NameError (undefined local variable or method `blog_writer' for #<BlogsController:0x0000556ca4de6d98>
+Did you mean?  blog_url):
+  
+app/controllers/blogs_controller.rb:10:in `index'
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:06:10 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 92.2ms | Allocations: 12687)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 100ms (Views: 96.7ms | ActiveRecord: 1.9ms | Allocations: 17344)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:06:12 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:79:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 4514)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 14.9ms | ActiveRecord: 1.0ms | Allocations: 10576)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:06:14 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:79:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 74.5ms | Allocations: 1122)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 80.2ms | ActiveRecord: 0.4ms | Allocations: 6297)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:06:16 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:79:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1122)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.3ms | Allocations: 6307)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:06:32 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:79:in `set_writer'
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (68.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Blog Load (0.0ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered blogs/index.html.erb within layouts/application (Duration: 1203.2ms | Allocations: 177778)
+Completed 500 Internal Server Error in 1300ms (ActiveRecord: 69.0ms | Allocations: 180239)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `blog_writer' for #<#<Class:0x00007ff66c81f640>:0x00007ff66c81d688>
+Did you mean?  @blog_wirter):
+    2: 
+    3: <h1>50자일기(50字日記）</h1>
+    4: 
+    5: <%= blog_writer %>
+    6: 
+    7: <style>
+    8: th, td{padding-left: 20px;
+  
+app/views/blogs/index.html.erb:5
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:06:41 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 2712)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.3ms | Allocations: 7861)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:10:17 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 103.7ms | Allocations: 13118)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 184ms (Views: 107.8ms | ActiveRecord: 1.6ms | Allocations: 18593)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:10:19 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 4831)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 13.3ms | ActiveRecord: 0.7ms | Allocations: 10519)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:12:27 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 8021)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:12:28 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:23:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 47.5ms | Allocations: 1448)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.2ms | Allocations: 6422)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:12:37 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (57.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 62.1ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 10.2ms | ActiveRecord: 57.5ms | Allocations: 8025)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:12:39 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 5.3ms | Allocations: 1131)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 2772)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.3ms | Allocations: 7724)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:12:42 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.9ms | Allocations: 1025)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1370)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 5807)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:12:43 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 10.7ms | Allocations: 972)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2160)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 10.1ms | ActiveRecord: 8.8ms | Allocations: 6456)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 22:12:45 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (61.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 66.9ms | Allocations: 2313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 11.0ms | ActiveRecord: 61.8ms | Allocations: 6601)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:13:25 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (31.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 36.7ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 10.4ms | ActiveRecord: 31.2ms | Allocations: 8003)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:13:27 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 91.5ms | Allocations: 1129)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 95.4ms | Allocations: 2770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 106ms (Views: 104.4ms | ActiveRecord: 0.5ms | Allocations: 7728)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 22:13:39 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TSA6y8N7/cqt7q+L9bR1TAQOEyG7DhTXuqKSM9ok5fdN/8bA3ylR+qkJOBePfn+0UmO5oQNL7ZelAvXb0jWcAw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 10ms (ActiveRecord: 0.1ms | Allocations: 2930)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:13:40 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 85.9ms | Allocations: 1491)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 105ms (Views: 104.0ms | ActiveRecord: 0.2ms | Allocations: 5776)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:13:46 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.4ms | Allocations: 113)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 87.2ms | Allocations: 1299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 91.6ms | ActiveRecord: 0.1ms | Allocations: 5610)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 22:15:04 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1889)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 7168)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:15:06 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 74.5ms | Allocations: 546)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 77.5ms | Allocations: 2064)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 84.0ms | ActiveRecord: 0.0ms | Allocations: 7714)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:15:09 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ooRys+BmAZu/LF4hhh76vLUTGt//jJDhodVrTA2MtExjmBjOipVBX8iaR/Wvq1UrxzPw8VUcZaN3ihd//Z3Hug==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1130ms (ActiveRecord: 0.3ms | Allocations: 4056)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:15:11 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 6608)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:15:15 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.4ms | Allocations: 1134)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 38.4ms | Allocations: 2776)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.2ms | Allocations: 7744)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 22:15:38 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3hgVhoCSsA10KLOeOJ5rNlv3D3tz9kPLgKaMrmW9A7r2AiiSqWGzUMJJs7IXSjgAWPkYeHRz0Vdr9eIVJ2NJFg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 39ms (ActiveRecord: 0.1ms | Allocations: 2385)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:15:38 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1485)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 5760)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:15:46 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 38.9ms | Allocations: 113)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 41.5ms | Allocations: 1298)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 45.4ms | ActiveRecord: 0.2ms | Allocations: 5612)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:17:52 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 52.8ms | Allocations: 271)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:27:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 56.0ms | Allocations: 1915)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 0.2ms | Allocations: 7213)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:19:55 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1269)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 2812)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= render 'header' %>
+
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+<p>
+	<%= "login해서 글 좀 써주세용" %><br />
+	<%= "loginして書いてください。(TEST)" %>
+</p>
+
+<h1>50자일기(50字日記）</h1>
+
+
+<style>
+th, td{padding-left: 20px;
+		padding-left: 30px;}
+</style>
+
+
+<table>
+  <thead>
+    <tr>
+	  <th>No.</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each_with_index do |blog, index| %>
+      <tr>
+		<td><%= index+1 %></td>
+        <td><%= link_to "#{blog.title}", blog %></td>
+        <td><%= link_to 'Show', blog %></td>
+		<td><%= link_to(blog) do %>
+		    <%= blog.title %>
+		    <% end %>
+		  </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>
+
+<p>
+	<%= link_to "Home", posts_index_path %>
+</p>
+
+
+):
+1:    <%= render 'header' %>
+2:    
+3:    <p id="notice"><%= notice %></p>
+4:    
+5:    <% if user_signed_in? %>
+6:    <p>
+7:    	<%= "login해서 글 좀 써주세용" %><br />
+8:    	<%= "loginして書いてください。(TEST)" %>
+9:    </p>
+10:    
+11:    <h1>50자일기(50字日記）</h1>
+12:    
+13:    
+14:    <style>
+15:    th, td{padding-left: 20px;
+16:    		padding-left: 30px;}
+17:    </style>
+18:    
+19:    
+20:    <table>
+21:      <thead>
+22:        <tr>
+23:    	  <th>No.</th>
+24:          <th>Title</th>
+25:          <th colspan="3"></th>
+26:        </tr>
+27:      </thead>
+28:    
+29:      <tbody>
+30:        <% @blogs.each_with_index do |blog, index| %>
+31:          <tr>
+32:    		<td><%= index+1 %></td>
+33:            <td><%= link_to "#{blog.title}", blog %></td>
+34:            <td><%= link_to 'Show', blog %></td>
+35:    		<td><%= link_to(blog) do %>
+36:    		    <%= blog.title %>
+37:    		    <% end %>
+38:    		  </td>
+39:          </tr>
+40:        <% end %>
+41:      </tbody>
+42:    </table>
+43:    
+44:    <br>
+45:    
+46:    <%= link_to 'New Blog', new_blog_path %>
+47:    
+48:    <p>
+49:    	<%= link_to "Home", posts_index_path %>
+50:    </p>
+  
+app/views/blogs/index.html.erb:54: syntax error, unexpected end-of-input, expecting end
+app/views/blogs/index.html.erb:54: syntax error, unexpected end-of-input, expecting end
+app/views/blogs/index.html.erb:54: syntax error, unexpected end-of-input, expecting end
+app/views/blogs/index.html.erb:54: syntax error, unexpected end-of-input, expecting end
+app/views/blogs/index.html.erb:54: syntax error, unexpected end-of-input, expecting end
+app/views/blogs/index.html.erb:54: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:20:18 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.2ms | Allocations: 7167)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:20:20 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.7ms | Allocations: 271)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 6960)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:20:22 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1978)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 7626)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:20:26 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"aEbWQFi3Ybmg7746bpSnCjKV0dCgHqY2ZwBIuvALaRei52JlbSrvuzwz3FJyx79h2KzSDKRpWR/Q9WIVwWYAag==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (22.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1125ms (ActiveRecord: 22.8ms | Allocations: 4038)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:20:27 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (92.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 96.1ms | Allocations: 2312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 102ms (Views: 8.4ms | ActiveRecord: 92.1ms | Allocations: 6602)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:20:41 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 27.2ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 30.1ms | Allocations: 2175)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.4ms | Allocations: 6495)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:20:59 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.7ms | Allocations: 1133)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2838)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.3ms | Allocations: 8141)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 22:21:01 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8nuV4vM1VTZNqTWX+VFIxZl7R2K1CPnEsXbunfiqDckJm34T1GUj/Vg2+3/LNWzCvHx/KulXeA6+teRvNoOmlQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 40ms (ActiveRecord: 0.1ms | Allocations: 2381)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:21:02 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 6817)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:21:04 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 68.4ms | Allocations: 118)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 71.0ms | Allocations: 1347)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.1ms | Allocations: 5662)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:21:29 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 98.1ms | Allocations: 1022)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 99.2ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 105ms (Views: 103.4ms | ActiveRecord: 0.0ms | Allocations: 5786)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:22:25 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.7ms | Allocations: 271)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 87.8ms | Allocations: 2047)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 93.4ms | ActiveRecord: 0.2ms | Allocations: 7333)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 22:22:31 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (38.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 41.9ms | Allocations: 1884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 8.7ms | ActiveRecord: 38.4ms | Allocations: 6802)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:22:33 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.4ms | Allocations: 118)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1357)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.2ms | Allocations: 5647)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:22:34 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 37.5ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 40.3ms | Allocations: 1981)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.0ms | Allocations: 7639)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:22:37 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"dPjRNljadEmih4OYyKqX21FdzhP5VoJEuDhZu5EqB6Dv5Yi2fzMs+SsWY8iXj1ErA481iuR1DOtpG2LQytaNVg==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (64.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1069ms (ActiveRecord: 64.1ms | Allocations: 4027)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:22:39 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 6610)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:22:43 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.5ms | Allocations: 980)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2173)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.9ms | Allocations: 6497)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:23:22 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.7ms | Allocations: 1133)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2863)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.2ms | Allocations: 8178)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:25:16 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.9ms | Allocations: 1133)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 16.9ms | ActiveRecord: 0.3ms | Allocations: 8169)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:25:20 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (57.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 60.1ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 63.9ms | Allocations: 2180)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 17.1ms | ActiveRecord: 57.3ms | Allocations: 6490)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:25:21 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.3ms | Allocations: 973)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 31.2ms | Allocations: 2168)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.3ms | Allocations: 6461)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:25:35 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.4ms | Allocations: 7643)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:25:36 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.7ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2180)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.4ms | Allocations: 6475)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:25:39 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.6ms | Allocations: 1022)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 22.8ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms | Allocations: 5789)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:25:40 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 36.6ms | Allocations: 976)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 38.4ms | Allocations: 2176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.3ms | Allocations: 6474)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:29:27 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1308)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.0ms | Allocations: 2866)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= render 'header' %>
+
+<p id="notice"><%= notice %></p>
+
+<% if !user_signed_in? %>
+<p>
+	<%= "login해서 글 좀 써주세용" %><br />
+	<%= "loginして書いてください。(TEST)" %>
+</p>
+<% end %>
+
+<h1>50자일기(50字日記）</h1>
+
+
+<style>
+th, td{padding-left: 20px;
+		padding-left: 30px;}
+</style>
+
+
+<table>
+  <thead>
+    <tr>
+	  <th>No.</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each_with_index do |blog, index| %>
+      <tr>
+		<td><%= index+1 %></td>
+        <td><%= link_to "#{blog.title}", blog %></td>
+        <td><%= link_to 'Show', blog %></td>
+		<td><%= link_to(blog) do %>
+		    <%= blog.title %>
+		    <% end %>
+		  </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+<%= link_to '쓰기(書き込み'), new_blog_path, class: 'btn' %>
+<% end %>
+
+<p>
+	<%= link_to "Home", posts_index_path %>
+</p>
+
+
+):
+1:    <%= render 'header' %>
+2:    
+3:    <p id="notice"><%= notice %></p>
+4:    
+5:    <% if !user_signed_in? %>
+6:    <p>
+7:    	<%= "login해서 글 좀 써주세용" %><br />
+8:    	<%= "loginして書いてください。(TEST)" %>
+9:    </p>
+10:    <% end %>
+11:    
+12:    <h1>50자일기(50字日記）</h1>
+13:    
+14:    
+15:    <style>
+16:    th, td{padding-left: 20px;
+17:    		padding-left: 30px;}
+18:    </style>
+19:    
+20:    
+21:    <table>
+22:      <thead>
+23:        <tr>
+24:    	  <th>No.</th>
+25:          <th>Title</th>
+26:          <th colspan="3"></th>
+27:        </tr>
+28:      </thead>
+29:    
+30:      <tbody>
+31:        <% @blogs.each_with_index do |blog, index| %>
+32:          <tr>
+33:    		<td><%= index+1 %></td>
+34:            <td><%= link_to "#{blog.title}", blog %></td>
+35:            <td><%= link_to 'Show', blog %></td>
+36:    		<td><%= link_to(blog) do %>
+37:    		    <%= blog.title %>
+38:    		    <% end %>
+39:    		  </td>
+40:          </tr>
+41:        <% end %>
+42:      </tbody>
+43:    </table>
+44:    
+45:    <br>
+46:    
+47:    <% if user_signed_in? %>
+48:    <%= link_to '쓰기(書き込み'), new_blog_path, class: 'btn' %>
+49:    <% end %>
+50:    
+51:    <p>
+52:    	<%= link_to "Home", posts_index_path %>
+53:    </p>
+  
+app/views/blogs/index.html.erb:48: syntax error, unexpected tLABEL
+app/views/blogs/index.html.erb:48: syntax error, unexpected ')', expecting end
+app/views/blogs/index.html.erb:48: syntax error, unexpected tLABEL
+app/views/blogs/index.html.erb:48: syntax error, unexpected ')', expecting end
+app/views/blogs/index.html.erb:48: syntax error, unexpected tLABEL
+app/views/blogs/index.html.erb:48: syntax error, unexpected ')', expecting end
+app/views/blogs/index.html.erb:48: syntax error, unexpected tLABEL
+app/views/blogs/index.html.erb:48: syntax error, unexpected ')', expecting end
+app/views/blogs/index.html.erb:48: syntax error, unexpected tLABEL
+app/views/blogs/index.html.erb:48: syntax error, unexpected ')', expecting end
+app/views/blogs/index.html.erb:48: syntax error, unexpected tLABEL
+app/views/blogs/index.html.erb:48: syntax error, unexpected ')', expecting end
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:29:58 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2712)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.4ms | Allocations: 8011)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:30:00 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 79.9ms | Allocations: 1133)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 83.4ms | Allocations: 2874)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 93.6ms | ActiveRecord: 0.3ms | Allocations: 7827)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 22:30:26 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SHuR60vuadSvOMsEmErv4Z2FvKwICKxCCLsMgQtISDIsqtVdmzDHMnzbdXoYimXj0jPRq45gO828FgBuDPZefg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 2371)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:30:26 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (60.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 63.2ms | Allocations: 1485)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 6.7ms | ActiveRecord: 60.5ms | Allocations: 5758)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:30:27 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.3ms | Allocations: 113)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1350)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 5651)
+
+
+Started GET "/blogs/7" for 172.17.0.1 at 2022-02-09 22:31:01 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBlog Load (32.7ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 7]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 8.8ms | Allocations: 5115)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 24.7ms | Allocations: 10079)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 28.3ms | ActiveRecord: 33.4ms | Allocations: 15075)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:31:04 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 37.7ms | Allocations: 114)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 40.4ms | Allocations: 1353)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.2ms | Allocations: 5623)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:32:42 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.8ms | Allocations: 271)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:31:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2066)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 60.0ms | ActiveRecord: 0.2ms | Allocations: 7364)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:33:36 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.7ms | Allocations: 1218)
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1782)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3319)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if user_signed_in? %>
+	<p><%= current_user.email.split("@")[0] %>, hello</p>
+	<p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
+	<hr style="border:solid 2px #9400D3">
+<% else %>
+	<p><%= #link_to "login", user_session_path %></p>
+	<hr size="2px">
+<% end %>
+):
+1:    <% if user_signed_in? %>
+2:    	<p><%= current_user.email.split("@")[0] %>, hello</p>
+3:    	<p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
+4:    	<hr style="border:solid 2px #9400D3">
+5:    <% else %>
+6:    	<p><%= #link_to "login", user_session_path %></p>
+7:    	<hr size="2px">
+8:    <% end %>
+  
+app/views/blogs/_header.html.erb:7: syntax error, unexpected '<'
+app/views/blogs/_header.html.erb:10: unterminated string meets end of file
+app/views/blogs/_header.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/blogs/_header.html.erb:7: syntax error, unexpected '<'
+app/views/blogs/_header.html.erb:10: unterminated string meets end of file
+app/views/blogs/_header.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/blogs/_header.html.erb:7: syntax error, unexpected '<'
+app/views/blogs/_header.html.erb:10: unterminated string meets end of file
+app/views/blogs/_header.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/blogs/_header.html.erb:7: syntax error, unexpected '<'
+app/views/blogs/_header.html.erb:10: unterminated string meets end of file
+app/views/blogs/_header.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/blogs/_header.html.erb:7: syntax error, unexpected '<'
+app/views/blogs/_header.html.erb:10: unterminated string meets end of file
+app/views/blogs/_header.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/blogs/_header.html.erb:7: syntax error, unexpected '<'
+app/views/blogs/_header.html.erb:10: unterminated string meets end of file
+app/views/blogs/_header.html.erb:10: syntax error, unexpected end-of-input, expecting ')'
+app/views/blogs/index.html.erb:1
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:33:52 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 6981)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:34:57 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 53.0ms | Allocations: 271)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 57.4ms | Allocations: 1994)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 65.5ms | ActiveRecord: 0.2ms | Allocations: 7280)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:34:59 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1981)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 7621)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 22:35:03 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"93JIYXhcyKXbsDR2BByPZV4WK9SHEaMJh7U8nEcc5KYdhyLprDu1JZBQfGHpjLhdHLcaMqGOtWfLk0Nq/yRlqA==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1137ms (ActiveRecord: 4.3ms | Allocations: 4002)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 22:35:04 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2712)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.3ms | Allocations: 7655)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:35:15 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.7ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2179)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 14.6ms | ActiveRecord: 0.3ms | Allocations: 6483)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:35:33 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 14.4ms | Allocations: 973)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 2166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.3ms | Allocations: 6454)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:36:25 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.4ms | Allocations: 1136)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 32.7ms | Allocations: 2839)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.3ms | Allocations: 8150)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:39:16 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 3.1ms | Allocations: 1135)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2832)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms | Allocations: 8147)
+
+
+Started GET "/rails/info/routes" for 172.17.0.1 at 2022-02-09 22:39:20 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::InfoController#routes as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/railties-6.0.3.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /usr/local/lib/ruby/gems/2.6.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [59 times] (Duration: 21.3ms | Allocations: 8129)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 4.1ms | Allocations: 795)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/railties-6.0.3.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 103.2ms | Allocations: 13570)
+Completed 200 OK in 109ms (Views: 106.1ms | ActiveRecord: 0.0ms | Allocations: 15186)
+
+
+Started GET "/rails/info/routes?path=user" for 172.17.0.1 at 2022-02-09 22:39:24 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"user"}
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 3130)
+
+
+Started GET "/rails/info/routes?path=user" for 172.17.0.1 at 2022-02-09 22:39:24 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"user"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1550)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:41:35 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.5ms | Allocations: 1022)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 99.8ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 109ms (Views: 107.6ms | ActiveRecord: 0.0ms | Allocations: 6671)
+
+
+Started GET "/blogs/10" for 172.17.0.1 at 2022-02-09 22:43:47 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 10]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.7ms | Allocations: 818)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 68.9ms | Allocations: 3549)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 72.8ms | ActiveRecord: 0.4ms | Allocations: 8521)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:44:53 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.3ms | Allocations: 1134)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2831)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 7260)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:44:55 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 61.8ms | Allocations: 714)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 62.3ms | Allocations: 807)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 83.0ms | ActiveRecord: 0.0ms | Allocations: 5101)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:50:49 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.0ms | Allocations: 903)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1253)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 6573)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:51:10 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 38.9ms | Allocations: 902)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 40.0ms | Allocations: 1246)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 46.4ms | ActiveRecord: 0.0ms | Allocations: 6548)
+
+
+Started POST "/blogs" for 172.17.0.1 at 2022-02-09 22:51:28 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#create as HTML
+  Parameters: {"authenticity_token"=>"5krm0Kml1/sdmkIosLjYBywxK+lgnHYl3pcjLTAyVHXPfA93f77kOTX6JVGmiTBY5+xwMnt/Op7bcq3XYrMFPQ==", "blog"=>{"title"=>"142", "description"=>""}, "commit"=>"쓰기(書き込み)"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blogs_controller.rb:30:in `block in create'
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "142"], ["description", ""], ["created_at", "2022-02-09 22:51:28.932654"], ["updated_at", "2022-02-09 22:51:28.932654"]]
+  ↳ app/controllers/blogs_controller.rb:30:in `block in create'
+  [1m[35m (25.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blogs_controller.rb:30:in `block in create'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs/11
+Completed 302 Found in 37ms (ActiveRecord: 26.3ms | Allocations: 4301)
+
+
+Started GET "/blogs/11" for 172.17.0.1 at 2022-02-09 22:51:29 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 11]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.8ms | Allocations: 818)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3280)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 10.7ms | ActiveRecord: 0.6ms | Allocations: 8292)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:51:33 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.1ms | Allocations: 1134)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2957)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 7377)
+
+
+Started GET "/blogs/11" for 172.17.0.1 at 2022-02-09 22:51:39 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 11]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.4ms | Allocations: 567)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2415)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.4ms | Allocations: 7248)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:51:40 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.2ms | Allocations: 973)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2276)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 8.8ms | ActiveRecord: 0.3ms | Allocations: 6564)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:51:58 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.9ms | Allocations: 908)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1252)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 6547)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:54:39 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.8ms | Allocations: 920)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 1264)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.0ms | Allocations: 6562)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:58:35 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 3.4ms | Allocations: 1134)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 0.3ms | Allocations: 7373)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 22:58:57 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 29.9ms | Allocations: 920)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 30.9ms | Allocations: 1270)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.0ms | Allocations: 6587)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:59:40 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 9.4ms | Allocations: 1134)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 2942)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.4ms | Allocations: 7366)
+
+
+Started GET "/blogs/7" for 172.17.0.1 at 2022-02-09 22:59:45 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 7]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 2.5ms | Allocations: 818)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3239)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 17.6ms | ActiveRecord: 0.5ms | Allocations: 8221)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 22:59:48 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 85.4ms | Allocations: 975)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 88.3ms | Allocations: 2283)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 97ms (Views: 95.4ms | ActiveRecord: 0.3ms | Allocations: 6578)
+
+
+Started GET "/blogs/7" for 172.17.0.1 at 2022-02-09 22:59:49 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 7]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.6ms | Allocations: 564)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2412)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 52.6ms | ActiveRecord: 0.4ms | Allocations: 7248)
+
+
+Started POST "/blogs/7/comments" for 172.17.0.1 at 2022-02-09 22:59:59 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#create as JS
+  Parameters: {"authenticity_token"=>"Z6TZfB4b8QjZr1PjWSULOBVPyzqMSy+ibY6IYJkwdb/pWFwonOBucVv8ukIaFfloZPUnr+A2OPyRy1iXzAVRjw==", "comment"=>{"writer"=>"aaa@aaa.aaa", "comment"=>"３５ｖ２３"}, "commit"=>"써줭", "blog_id"=>"7"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "blog_id", "created_at", "updated_at", "writer") VALUES (?, ?, ?, ?, ?)[0m  [["comment", "３５ｖ２３"], ["blog_id", 7], ["created_at", "2022-02-09 22:59:59.456429"], ["updated_at", "2022-02-09 22:59:59.456429"], ["writer", "aaa@aaa.aaa"]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[35m (34.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs/7
+Completed 200 OK in 48ms (ActiveRecord: 35.3ms | Allocations: 5261)
+
+
+Started GET "/blogs/7" for 172.17.0.1 at 2022-02-09 22:59:59 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 7]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.6ms | Allocations: 564)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 2534)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 0.5ms | Allocations: 7374)
+
+
+Started DELETE "/blogs/7/comments/26" for 172.17.0.1 at 2022-02-09 23:00:12 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lK4AkiZRkKPFitQJZGxpoW4Rno8Dqg2Yox4HBqMamsi9mOk18EqjYe3qs3ByXYH+pczFVBhJQSOm+4n88ZvLgA==", "blog_id"=>"7", "id"=>"26"}
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:13:in `destroy'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["blog_id", 7], ["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:14:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 26]]
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+  [1m[35m (27.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs/7
+Completed 302 Found in 44ms (ActiveRecord: 28.3ms | Allocations: 5058)
+
+
+Started GET "/blogs/7" for 172.17.0.1 at 2022-02-09 23:00:12 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 7]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 1.5ms | Allocations: 564)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 2410)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 18.9ms | ActiveRecord: 0.4ms | Allocations: 7256)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:00:14 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 6.8ms | Allocations: 973)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 43.1ms | Allocations: 2276)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 104ms (Views: 101.7ms | ActiveRecord: 0.9ms | Allocations: 6573)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:00:16 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 2737)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 0.4ms | Allocations: 7681)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:00:35 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 14.7ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 2288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.4ms | Allocations: 6573)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:00:37 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.5ms | Allocations: 606)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 699)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 4990)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:09:40 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.7ms | Allocations: 1158)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2982)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.3ms | Allocations: 8290)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:09:45 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.9ms | Allocations: 919)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1264)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 5679)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:11:36 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.8ms | Allocations: 1364)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1688)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3244)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: blog, local: true) do |form| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+        <% blog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, "제목 タイトル" %>
+    <%= form.text_field :title, %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, size: "30x1" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "작성(作成)"%>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: blog, local: true) do |form| %>
+2:      <% if blog.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% blog.errors.full_messages.each do |message| %>
+8:              <li><%= message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div class="field">
+15:        <%= form.label :title, "제목 タイトル" %>
+16:        <%= form.text_field :title, %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= form.label :description %>
+21:        <%= form.text_area :description, size: "30x1" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= form.submit "작성(作成)"%>
+26:      </div>
+27:    <% end %>
+  
+app/views/blogs/_form.html.erb:16: syntax error, unexpected ')'
+app/views/blogs/_form.html.erb:27: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:16: syntax error, unexpected ')'
+app/views/blogs/_form.html.erb:27: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:16: syntax error, unexpected ')'
+app/views/blogs/_form.html.erb:27: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:16: syntax error, unexpected ')'
+app/views/blogs/_form.html.erb:27: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:16: syntax error, unexpected ')'
+app/views/blogs/_form.html.erb:27: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:16: syntax error, unexpected ')'
+app/views/blogs/_form.html.erb:27: syntax error, unexpected end, expecting ')'
+app/views/blogs/_form.html.erb:29: syntax error, unexpected end, expecting ')'
+app/views/blogs/new.html.erb:3
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:11:54 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (80.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 85.5ms | Allocations: 2731)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 92ms (Views: 10.8ms | ActiveRecord: 80.5ms | Allocations: 8026)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:11:55 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 3.8ms | Allocations: 1142)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 2951)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.3ms | Allocations: 7897)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:11:58 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.9ms | Allocations: 811)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1156)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 5589)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:12:15 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.2ms | Allocations: 976)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 6569)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:12:17 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.2ms | Allocations: 486)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 579)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4864)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:14:25 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 2.8ms | Allocations: 701)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1045)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 6352)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:15:09 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 58.9ms | Allocations: 1134)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 61.9ms | Allocations: 2943)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 67.1ms | ActiveRecord: 0.3ms | Allocations: 8250)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:15:11 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 58.4ms | Allocations: 700)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 59.4ms | Allocations: 1044)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 64.3ms | ActiveRecord: 0.0ms | Allocations: 5476)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:15:28 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.5ms | Allocations: 1134)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 8233)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:15:29 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.6ms | Allocations: 700)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1044)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 5472)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:15:37 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.8ms | Allocations: 1134)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 35.0ms | Allocations: 2947)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.2ms | Allocations: 8258)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:15:39 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 58.3ms | Allocations: 701)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 59.2ms | Allocations: 1046)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 63.5ms | ActiveRecord: 0.0ms | Allocations: 5485)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:16:41 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.5ms | Allocations: 976)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.4ms | Allocations: 6567)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:16:46 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.8ms | Allocations: 700)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1044)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 6339)
+
+
+Started POST "/blogs" for 172.17.0.1 at 2022-02-09 23:17:21 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#create as HTML
+  Parameters: {"authenticity_token"=>"5O80BWySeZJ2ZnGs4JOiRXjoHpEQkxWkElYjYt/SiYue8D4WnDTBSfTbIPh1juZO5Enkvqz02bBeLcIiQJh7dw==", "blog"=>{"title"=>"", "description"=>"한 문장으로 모든 걸 담아보려고 하는데, 그게 과연 될런지 안 될런지 어디까지 글이 길어질지 그게 뭔 의미가"}, "commit"=>"작성(作成)"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blogs_controller.rb:30:in `block in create'
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", ""], ["description", "한 문장으로 모든 걸 담아보려고 하는데, 그게 과연 될런지 안 될런지 어디까지 글이 길어질지 그게 뭔 의미가"], ["created_at", "2022-02-09 23:17:21.933266"], ["updated_at", "2022-02-09 23:17:21.933266"]]
+  ↳ app/controllers/blogs_controller.rb:30:in `block in create'
+  [1m[35m (24.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blogs_controller.rb:30:in `block in create'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs/12
+Completed 302 Found in 47ms (ActiveRecord: 25.3ms | Allocations: 4196)
+
+
+Started GET "/blogs/12" for 172.17.0.1 at 2022-02-09 23:17:22 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  Rendering blogs/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/show.html.erb:6
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."blog_id" = ?[0m  [["blog_id", 12]]
+  ↳ app/views/blogs/show.html.erb:37:in `each_with_index'
+  Rendered comments/_form.html.erb (Duration: 7.8ms | Allocations: 818)
+  Rendered blogs/show.html.erb within layouts/application (Duration: 29.8ms | Allocations: 3259)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 49.3ms | ActiveRecord: 0.7ms | Allocations: 8279)
+
+
+Started DELETE "/blogs/12" for 172.17.0.1 at 2022-02-09 23:17:26 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6OSWPV3gz6PfUASn1675/WKyl9/xgEgdqBbQx3Nmj6TB0n+ai/v8YfcwY97BnxGiqW/MBOpjBKat8149Iefe7A==", "id"=>"12"}
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:67:in `set_blog'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+  [1m[36mBlog Destroy (0.3ms)[0m  [1m[31mDELETE FROM "blogs" WHERE "blogs"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+  [1m[35m (23.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blogs_controller.rb:57:in `destroy'
+Redirected to http://rails-t-duelh.run.goorm.io/blogs
+Completed 302 Found in 111ms (ActiveRecord: 23.9ms | Allocations: 4226)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:17:27 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.5ms | Allocations: 1134)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2943)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 7388)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 23:18:03 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LR2NlC3+LhM1dMmgS28MVPbIBhf3IZvpboIoxPqkOU0EK2Qz++Ud0R0UrtldXuQLPRVdzOzC11JrZ6Y+qCVoBQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 93ms (ActiveRecord: 0.1ms | Allocations: 2375)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:18:03 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1892)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.2ms | Allocations: 6822)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:18:05 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.4ms | Allocations: 118)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1452)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.2ms | Allocations: 5755)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:19:20 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 7159)
+
+
+Started GET "/posts/new" for 172.17.0.1 at 2022-02-09 23:19:30 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 61.9ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 66.2ms | ActiveRecord: 0.0ms | Allocations: 4532)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:19:57 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1886)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 7157)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:22:41 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1886)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 37.9ms | ActiveRecord: 0.2ms | Allocations: 7163)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:22:53 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1886)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 13.2ms | ActiveRecord: 0.2ms | Allocations: 7155)
+
+
+Started GET "/posts/new" for 172.17.0.1 at 2022-02-09 23:22:59 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 124)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms | Allocations: 4513)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:26:11 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.9ms | Allocations: 272)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 48.0ms | Allocations: 2105)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 116ms (Views: 114.4ms | ActiveRecord: 0.2ms | Allocations: 7410)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:26:14 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1981)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms | Allocations: 7621)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:26:18 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"v8cmaS67/R5a05OZC5kdKfBs7J/qnZoOGiBlg1RbjYe9qXkcgI3//psSlpTwnbsbX44uFbuoFuSdPXvPk2MUFA==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1207ms (ActiveRecord: 0.4ms | Allocations: 4039)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:26:19 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.3ms | Allocations: 7649)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:26:22 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 7.0ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 2289)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.3ms | Allocations: 6597)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 23:26:44 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JhQ6OfzV1N0nOiiokjh+XCZwMUxpW0sRu59vcrFQ7h1RJAwxwp/520hsmX9+bIO0oq0HeNiAO+gIPGCddvtjFg=="}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 7ms (ActiveRecord: 2.8ms | Allocations: 2369)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:26:44 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1480)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 5744)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:26:46 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.3ms | Allocations: 113)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1443)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 5742)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:28:22 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 7161)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:28:23 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 1.1ms | Allocations: 273)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2073)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 7012)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:28:29 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 20.7ms | Allocations: 1484)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.2ms | Allocations: 5749)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:28:30 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 70.4ms | Allocations: 112)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 72.9ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 77.1ms | ActiveRecord: 0.2ms | Allocations: 5691)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:28:32 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1976)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 7616)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:28:35 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"F1JxFIIyfPAKR+ARcR0BsEu7BJbZ2+fTzWiLP2jzcAHNYx1D0AHcLxboby284C6TP4pdiNQjjL+zqXCWuZjsow==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1021ms (ActiveRecord: 0.2ms | Allocations: 4003)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:28:36 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 6590)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:28:42 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.1ms | Allocations: 980)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2266)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 6568)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 23:29:22 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LtPD9S2H8ntJe0QdIMtPoS8cW7OK1e83khPjmYunN96zdVF2gwMeCrk40kWxohPLVaWR3SZ1ZRO5CsOu7mJ+3A=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 26ms (ActiveRecord: 0.2ms | Allocations: 2371)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:29:23 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1886)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 32.5ms | ActiveRecord: 0.2ms | Allocations: 7173)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:29:24 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 1.0ms | Allocations: 282)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2083)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 21.2ms | ActiveRecord: 0.2ms | Allocations: 7043)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:29:42 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.2ms | Allocations: 7154)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:29:43 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.9ms | Allocations: 281)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 15.6ms | Allocations: 2074)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 51.9ms | ActiveRecord: 0.2ms | Allocations: 7003)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:29:47 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1484)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 86.1ms | ActiveRecord: 0.2ms | Allocations: 5743)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:29:48 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.4ms | Allocations: 112)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.2ms | Allocations: 5693)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:29:48 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 18.9ms | Allocations: 1976)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 7620)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:29:51 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"4u346Agdmp68a67Eb5eO6F72I2xMwvdvEpI+LFMOOPrkexy76zFvjCCJyRm0E9sF0cocAsgx7k6dRjrE795Owg==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1025ms (ActiveRecord: 0.2ms | Allocations: 4003)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:29:53 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (62.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 66.8ms | Allocations: 2315)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 20.0ms | ActiveRecord: 62.7ms | Allocations: 6612)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:29:57 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 4.8ms | Allocations: 1003)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2289)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.3ms | Allocations: 6603)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:30:30 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.8ms | Allocations: 1166)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 34.1ms | Allocations: 2940)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.3ms | Allocations: 8233)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:30:45 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2714)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 77.5ms | ActiveRecord: 0.3ms | Allocations: 7644)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:30:50 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 4.5ms | Allocations: 1003)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 22.3ms | ActiveRecord: 0.3ms | Allocations: 6567)
+
+
+Started DELETE "/users/sign_out" for 172.17.0.1 at 2022-02-09 23:30:53 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5+E8Ox+5fEDdaHPu2vJl45D1FJhtp/N8pu2fIq9wqAW7N6fkYYlh3U+zkGFRVqJp4CeqGOs8pQl7XUr036d5jQ=="}
+  [1m[36mUser Load (54.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 66ms (ActiveRecord: 54.8ms | Allocations: 2376)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:30:53 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1480)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 23.5ms | ActiveRecord: 0.2ms | Allocations: 5742)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:30:54 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  Rendered blogs/_header.html.erb (Duration: 0.3ms | Allocations: 112)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1421)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 5712)
+
+
+Started GET "/posts/index" for 172.17.0.1 at 2022-02-09 23:31:46 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1890)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.3ms | Allocations: 7165)
+
+
+Started GET "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:31:47 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 521)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1978)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 7616)
+
+
+Started POST "/users/sign_in" for 172.17.0.1 at 2022-02-09 23:31:51 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"+XR7UxEoy+XYCB+WGoHc1COyW9J63dNadUf8N45Lu+ioUjDbXKkURYbwtazywdwJ3ysaYca1A+Zugq5gkJk2xQ==", "user"=>{"email"=>"aaa@aaa.aaa", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "aaa@aaa.aaa"], ["LIMIT", 1]]
+Redirected to http://rails-t-duelh.run.goorm.io/
+Completed 302 Found in 1067ms (ActiveRecord: 0.1ms | Allocations: 4017)
+
+
+Started GET "/" for 172.17.0.1 at 2022-02-09 23:31:52 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:34
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 6598)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:31:54 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 95.1ms | Allocations: 1163)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 99.1ms | Allocations: 2933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 110ms (Views: 107.9ms | ActiveRecord: 0.4ms | Allocations: 7899)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:32:05 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.9ms | Allocations: 711)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1060)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 5495)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:32:10 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (60.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 62.6ms | Allocations: 999)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 65.4ms | Allocations: 2284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 8.9ms | ActiveRecord: 60.6ms | Allocations: 6569)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:32:48 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.7ms | Allocations: 699)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 39.5ms | Allocations: 1046)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 0.0ms | Allocations: 6355)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:35:02 +0000
+Cannot render console from 10.1.21.240! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 8.8ms | Allocations: 1163)
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 134ms (Views: 131.8ms | ActiveRecord: 0.4ms | Allocations: 8223)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:35:03 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.5ms | Allocations: 699)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1047)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 5461)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:35:10 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.4ms | Allocations: 999)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 87.1ms | Allocations: 2284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 0.3ms | Allocations: 6575)
+
+
+Started GET "/blogs/new" for 172.17.0.1 at 2022-02-09 23:35:24 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (Duration: 1.9ms | Allocations: 699)
+  Rendered blogs/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1047)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 6343)
+
+
+Started GET "/blogs" for 172.17.0.1 at 2022-02-09 23:35:29 +0000
+Cannot render console from 10.1.20.239! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blogs/_header.html.erb:1
+  Rendered blogs/_header.html.erb (Duration: 2.8ms | Allocations: 1163)
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:24:in `each_with_index'
+  Rendered blogs/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 63.0ms | ActiveRecord: 0.2ms | Allocations: 7366)
+
+

@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
   # GET /blogs
   # GET /blogs.json
+	
   def index
     @blogs = Blog.all
   end
@@ -71,4 +71,5 @@ class BlogsController < ApplicationController
     def blog_params
       params.require(:blog).permit(:title, :description)
     end
+	
 end

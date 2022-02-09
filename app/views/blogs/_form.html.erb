@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, "제목 タイトル" %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :description, "내용 内容" %>
+    <%= form.text_area :description, size: "100x2" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "작성(作成)"%>
   </div>
 <% end %>

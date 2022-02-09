@@ -1,6 +1,9 @@
+<%= render 'header' %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
+<h1>한문장일기(1文章日記）</h1>
+
 
 <style>
 th, td{padding-left: 20px;
@@ -34,9 +37,13 @@ th, td{padding-left: 20px;
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<% if user_signed_in? %>
+<%= link_to '쓰기(書き込み)', new_blog_path, class: 'btn' %>
+<% else %>
+<%= link_to "login해서 글쓰기(loginして書き込み)", user_session_path %>
+<% end %>
 
 <p>
-	<%= link_to "Home", posts_index_path %>
+	
 </p>
 
