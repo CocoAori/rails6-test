@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 <h1>
-	Blog
+	<a href="/blogs/<%= @blog.id %>/chu" style="text-decoration:none"> &#x1F61A;</a>
 </h1>
+	<% i = 0 %>
+	<% while i < @blog.thumbup %>
+	&#x1F61A;
+	<% i += 1 %>
+	<% end %>
 
 <% if user_signed_in? %>
 	<% login_ID = current_user.email %>
@@ -16,18 +21,16 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
   <%= @blog.description %>
 </p>
+<hr />
 
 <p>
 <%= link_to 'Back', blogs_path %>	
-</p>
-<p>
+&nbsp;&nbsp;
 <%= link_to 'Edit', edit_blog_path(@blog) %>
-</p>
-<p>
-<%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+&nbsp;&nbsp;
+<%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
 <hr />
 
@@ -52,9 +55,7 @@
 
 <hr />
 
-<h3>
-	comment작성
-</h3>
+
 <%= render 'comments/form' %>
 
 

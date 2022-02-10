@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :chu]
   # GET /blogs
   # GET /blogs.json
 	
@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to blogs_path, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -61,6 +61,14 @@ class BlogsController < ApplicationController
     end
   end
 
+	##따봉
+	def chu
+		@blog.update(thumbup: @blog.thumbup+1 )
+		redirect_to "/blogs/#{@blog.id}"
+	end
+	
+	
+	##
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
