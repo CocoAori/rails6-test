@@ -61,12 +61,7 @@ class BlogsController < ApplicationController
     end
   end
 
-	##따봉
-	def chu
-		@blog.update(thumbup: @blog.thumbup+1 )
-		redirect_to "/blogs/#{@blog.id}"
-	end
-	
+
 	
 	##
   private

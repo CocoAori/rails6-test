@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   #get 'posts/destroy/:id' => "posts#destroy"
 	delete 'posts/destroy/:id' => "posts#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-	get 'blogs/:id/chu' => "blogs#chu"
+	
+	post "blogs/:blog_id/likes/create" => "likes#create"
+	post "blogs/:blog_id/likes/destroy" => "likes#destroy"
+	
 end

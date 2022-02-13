@@ -1,0 +1,2 @@
+module ThumupsHelper
+end

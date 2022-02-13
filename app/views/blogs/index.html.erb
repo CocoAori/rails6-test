@@ -27,7 +27,7 @@ th, td{padding-left: 20px;
 		<td><%= index+1 %></td>
         <td><%= link_to "#{blog.title}", blog %></td>
 		<td><%= blog.created_at.strftime "%m月%d日" %></td>
-		<td> &#x1F618;<b><%= blog.thumbup %></b></td>
+		<td> 💕<b><%= Like.where(blog_id: blog.id).count %></b></td>
 		<!--
 		<td><%= link_to 'Show', blog %></td>
 		<td><%= link_to(blog) do %>

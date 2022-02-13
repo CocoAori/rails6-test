@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_125821) do
+ActiveRecord::Schema.define(version: 2022_02_13_162349) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "thumbup", default: 0
   end
 
   create_table "comments", force: :cascade do |t|
@@ -27,6 +26,13 @@ ActiveRecord::Schema.define(version: 2022_02_10_125821) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "writer"
     t.index ["blog_id"], name: "index_comments_on_blog_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "blog_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|

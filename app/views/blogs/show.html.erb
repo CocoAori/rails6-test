@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
-<h1>
-	<a href="/blogs/<%= @blog.id %>/chu" style="text-decoration:none"> &#x1F61A;</a>
-</h1>
-	<% i = 0 %>
-	<% while i < @blog.thumbup %>
-	&#x1F61A;
-	<% i += 1 %>
-	<% end %>
+
 
 <% if user_signed_in? %>
 	<% login_ID = current_user.email %>
+	<% login_PID = current_user.id %>
 <% else %>
 	<% login_ID = "" %>
+	<% login_PID = 0 %>
 <% end %>
+
+
+<p>
+	<% if Like.find_by(user_id: login_PID , blog_id: @blog.id) %>
+	<%= link_to("💕", "/blogs/#{@blog.id}/likes/destroy", {method: "post"}) %>
+	<% else %>
+	<%= link_to("🖤", "/blogs/#{@blog.id}/likes/create", {method: "post"}) %>
+	<% end %>
+	<%= Like.where(blog_id: @blog.id).count %>
+</p>
 
 
 <p>
