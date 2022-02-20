@@ -59,13 +59,13 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    
+    #20220221 삭제전 패스워드 확인 
 	respond_to do |format| 
 	  if @blog.passwd == params[:password] 
 		@blog.destroy
     	format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       	format.json { head :no_content }
-	  else
+	  else #추가부분
 		format.html { redirect_to @blog, alert: 'Failed to delete.' }
         format.json { render :show, @blog.errors, status: :unprocessable_entity }
 	  end 
