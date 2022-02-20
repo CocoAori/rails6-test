@@ -3,8 +3,13 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
 	
+	#20220220 form으로 delete하려고하면 토큰 에러나네
+	protect_from_forgery :only => ["delete"]
+	
   def index
-    @blogs = Blog.all
+    #@blogs = Blog.all
+	#@blogs = Blog.all.order(created_at: "ASC")
+	@blogs = Blog.all.order(:created_at)
   end
 
   # GET /blogs/1
@@ -54,10 +59,16 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    @blog.destroy
-    respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
-      format.json { head :no_content }
+    
+	respond_to do |format| 
+	  if @blog.passwd == params[:password] 
+		@blog.destroy
+    	format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
+      	format.json { head :no_content }
+	  else
+		format.html { redirect_to @blog, alert: 'Failed to delete.' }
+        format.json { render :show, @blog.errors, status: :unprocessable_entity }
+	  end 
     end
   end
 
@@ -72,7 +83,9 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :description)
+      	#20220222작성자 추가
+		#params.require(:blog).permit(:title, :description)
+		params.require(:blog).permit(:title, :description, :writer, :passwd)	
     end
 	
 end

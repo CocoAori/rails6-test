@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<p id="alert"><font color="red"><%= alert %></font></p>
 
 <% if user_signed_in? %>
 	<% login_ID = current_user.email %>
@@ -33,9 +33,38 @@
 <p>
 <%= link_to 'Back', blogs_path %>	
 &nbsp;&nbsp;
-<%= link_to 'Edit', edit_blog_path(@blog) %>
-&nbsp;&nbsp;
-<%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if @blog.writer == login_ID %>
+	<%= link_to 'Edit', edit_blog_path(@blog) %>
+	&nbsp;&nbsp;
+	<%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+	작성자作成者：<%= @blog.writer %>
+	
+	<% if @blog.passwd == "LoginUser" %>
+	<% else  %>
+		<form name="passcheck" action="/blogs/<%= @blog.id %>" method="post">
+			<input type="hidden" name="_method" value="DELETE">
+			Password : <input type="text" id="password" name="password">	
+			<input type="submit" value="Delete">
+			<input type="button" onclick="return check()" value="PASSWORD CHECK">
+		</form>
+
+		<script type="text/javascript">
+			function check(){
+				var p1 = document.getElementById("password").value;
+				var p2 = <%= @blog.passwd %>;
+				if( p1 != p2 ){
+					alert("비번 달라~ password 違う~");
+					return false;
+				} else{
+					alert("bingo!");
+					return true;
+				}
+			}
+		</script>
+	<% end %>
+<% end %>
+
 </p>
 <hr />
 

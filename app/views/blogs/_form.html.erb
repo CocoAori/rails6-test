@@ -21,6 +21,27 @@
     <%= form.text_area :description, size: "100x2" %>
   </div>
 
+<% if user_signed_in? %>
+  	<div>
+	  글쓴이作成者: <%= current_user.email %>
+		<%= form.hidden_field :writer, :value => current_user.email %>
+		<%= form.hidden_field :passwd, :value => "LoginUser" %>
+	</div>
+
+<% else %>
+  <div class="field">
+    <%= form.label :writer, "글쓴이作成者" %>
+    <%= form.text_field :writer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passwd, "password" %>
+    <%= form.text_field :passwd %>
+  </div>
+<% end %>
+
+
+
   <div class="actions">
     <%= form.submit "작성(作成)"%>
   </div>
