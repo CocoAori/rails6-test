@@ -24,6 +24,12 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+	  #20220221로그인안한 사람 비번 확인
+	  if @blog.passwd == params[:pw_check]
+	  else
+		  #redirect_to :back
+		  redirect_to blogs_path
+	  end
   end
 
   # POST /blogs
@@ -61,7 +67,7 @@ class BlogsController < ApplicationController
   def destroy
     #20220221 삭제전 패스워드 확인 
 	respond_to do |format| 
-	  if @blog.passwd == params[:password] 
+	  if @blog.passwd == params[:pw_check] 
 		@blog.destroy
     	format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       	format.json { head :no_content }
@@ -83,7 +89,7 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      	#20220222작성자 추가
+      	#20220220작성자 추가
 		#params.require(:blog).permit(:title, :description)
 		params.require(:blog).permit(:title, :description, :writer, :passwd)	
     end

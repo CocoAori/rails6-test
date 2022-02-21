@@ -34,9 +34,14 @@
 <%= link_to 'Back', blogs_path %>	
 &nbsp;&nbsp;
 <% if @blog.writer == login_ID %>
-	<%= link_to 'Edit', edit_blog_path(@blog) %>
+	<%= link_to 'Edit', edit_blog_path(@blog, pw_check: @blog.passwd) %>
 	&nbsp;&nbsp;
-	<%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<!--%= link_to 'Delete', @blog, method: :delete, data: { confirm: 'Are you sure?' } %-->
+	<form name="passcheck" action="/blogs/<%= @blog.id %>" method="post" onsubmit="return confirm('Are you sure?');">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="hidden" name="pw_check" value="<%= @blog.passwd %>">
+		<input type="submit" value="Delete">
+	</form>
 <% else %>
 	작성자作成者：<%= @blog.writer %>
 	
@@ -44,21 +49,25 @@
 	<% else  %>
 		<form name="passcheck" action="/blogs/<%= @blog.id %>" method="post">
 			<input type="hidden" name="_method" value="DELETE">
-			Password : <input type="text" id="password" name="password">	
+			Password : <input type="text" id="pw_check" name="pw_check">	
 			<input type="submit" value="Delete">
-			<input type="button" onclick="return check()" value="PASSWORD CHECK">
+			<input type="button" onclick="return check()" value="Edit">
+			
 		</form>
 
 		<script type="text/javascript">
 			function check(){
-				var p1 = document.getElementById("password").value;
+				var p1 = document.getElementById("pw_check").value;
 				var p2 = <%= @blog.passwd %>;
+				//머여...자바스크립트는 소스보기에서 데이터가 보여버리네. 이걸 숨기려면? 요건 나중에하고, 우선은 냅두고,  
+				//delete랑 edit은 데이터를 안 보이는 곳에서 controller에서 처리함
 				if( p1 != p2 ){
 					alert("비번 달라~ password 違う~");
 					return false;
 				} else{
-					alert("bingo!");
-					return true;
+					//alert("bingo!");
+					//return true;
+					location.href="/blogs/<%= @blog.id %>/edit?pw_check="+p1
 				}
 			}
 		</script>
