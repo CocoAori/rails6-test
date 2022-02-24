@@ -12,9 +12,19 @@ class PostsController < ApplicationController
   def create
 	if user_signed_in?
 		writer = current_user.email
+	elsif
+		if params[:post_pw] == "1234" && params[:scret] == "3" && params[:language] == "on"
+			writer = "aaa@aaa.aaa"
+		else
+			writer = "wrong"
+		end
 	end
-	  post=Post.create(title: params[:title], content: params[:content], writer: writer)
-	  redirect_to "/posts/show/#{post.id}"
+	  
+	  if writer == "aaa@aaa.aaa"
+	  	post=Post.create(title: params[:title], content: params[:content], writer: writer)
+	  	redirect_to "/posts/show/#{post.id}"
+	  end
+	  
   end
 
   def show
@@ -22,7 +32,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-	  @post = Post.find(params[:ids])
+	  #if user_signed_in? && current_user.email == "aaa@aaa.aaa"
+	  	@post = Post.find(params[:ids])
+	  #elsif
+
+	  #end
   end
 
   def update
@@ -32,9 +46,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-	  post = Post.find(params[:id])
-	  
 	  if user_signed_in?
+		post = Post.find(params[:id])
 	  	if post.writer == current_user.email
 		  post.destroy
 		  redirect_to "/posts/index"

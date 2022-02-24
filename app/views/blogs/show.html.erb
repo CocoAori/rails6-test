@@ -60,7 +60,7 @@
 				var p1 = document.getElementById("pw_check").value;
 				var p2 = <%= @blog.passwd %>;
 				//머여...자바스크립트는 소스보기에서 데이터가 보여버리네. 이걸 숨기려면? 요건 나중에하고, 우선은 냅두고,  
-				//delete랑 edit은 데이터를 안 보이는 곳에서 controller에서 처리함
+				//delete은 데이터를 안 보이는 곳controller으로 가져가서  처리함
 				if( p1 != p2 ){
 					alert("비번 달라~ password 違う~");
 					return false;

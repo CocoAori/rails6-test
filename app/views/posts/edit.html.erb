@@ -1,4 +1,4 @@
-
+<% if user_signed_in? && current_user.email == "aaa@aaa.aaa" %>
 
 <form action="/posts/update/<%= @post.id %>" method="POST">
 	<input name="title" type="text" value="<%= @post.title %>">
@@ -12,3 +12,16 @@
 <p>
 	<%= link_to "back", :back %>	
 </p>
+
+<% else %>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Jua&family=Kirang+Haerang&family=Nanum+Pen+Script&display=swap');
+</style>
+
+<p>
+	<font face="'Jua', sans-serif" size=100px>수정 권한 노노~❤️ </font>
+</p>
+
+<%= link_to "back", posts_index_path %>
+
+<% end %>

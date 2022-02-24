@@ -1,13 +1,30 @@
 
 <form action="/posts/create" method="POST">
 	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-	<input name="title" type="text">
+	<label for="title">제목</label>
+	<input name="title" type="text" id="title" size="15">
 	<br />
-	<textarea name="content"></textarea>
+	<label for="content">내용</label>
+	<textarea name="content" id="content"></textarea>
+	<br />
 	<button>
 		submit
 	</button>
+	
+	<input type="password" name="post_pw">
+	<input type="radio" name="scret" value="1">
+	<input type="radio" name="scret" value="2">
+	<input type="radio" name="scret" value="3">
+	<button type="reset"> reset </button>
+	<br />
+	<label for="Korean">한국어<input type="checkbox" name="language" id="Korean"></label>
+    <label for="Japan">日本語<input type="checkbox" name="language" id="Japan"></label>
+    <label for="English">English<input type="checkbox" name="language"></label>
+    <label for="France">Français<input type="checkbox" name="language"></label>
+	
+	
 </form>
 <p>
 	<%= link_to "back", :back %>	
 </p>
+

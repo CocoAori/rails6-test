@@ -4,18 +4,30 @@
 
 <h1>한문장일기(1文章日記）</h1>
 
+<% if user_signed_in? %>
+<%= link_to '글쓰기(書き込み)', new_blog_path, class: 'btn', style: 'font-size:14px;' %>
+<% else %>
+<%= link_to "login해서 글쓰기(loginして書き込み)", user_session_path, style: 'color:green; font-size:14px;' %>
+&nbsp; &nbsp; &nbsp; &nbsp; 
+<%= link_to '그냥글쓰기(書き込み)', new_blog_path, class: 'btn', style: 'color:green; font-size:14px;' %>	
+<% end %>
 
 <style>
 th, td{padding-left: 20px;
 		padding-left: 30px;}
+	a{
+		text-decoration: none;
+	}
 </style>
 
+<hr />
 
 <table>
   <thead>
     <tr>
 	  <th>No.</th>
       <th>Title</th>
+	  <th>작성자</th>
 	  <th>date</th>
       <th colspan="3"></th>
     </tr>
@@ -26,6 +38,7 @@ th, td{padding-left: 20px;
       <tr>
 		<td><%= index+1 %></td>
         <td><%= link_to "#{blog.title}", blog %></td>
+		<td><%= blog.writer %></td>
 		<td><%= blog.created_at.strftime "%m月%d日" %></td>
 		<td> 💕<b><%= Like.where(blog_id: blog.id).count %></b></td>
 		<!--
@@ -42,13 +55,6 @@ th, td{padding-left: 20px;
 
 <br>
 
-<% if user_signed_in? %>
-<%= link_to '쓰기(書き込み)', new_blog_path, class: 'btn' %>
-<% else %>
-<%= link_to "login해서 글쓰기(loginして書き込み)", user_session_path %>
-<p>
-<%= link_to '쓰기(書き込み)', new_blog_path, class: 'btn' %>	
-</p>
-<% end %>
+
 
 
