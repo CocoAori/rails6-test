@@ -1,0 +1,22 @@
+<h1>어디가 아프십니까??</h1>
+<br />
+<%= link_to "HOME", root_path  %>
+<br />
+<hr />
+<div>
+	rails g model Weedoc category organ sign1 sign2 strong cause expect
+</div>
+<%= link_to "추가", weedocs_add_path %>  &nbsp;&nbsp;
+<%= link_to "삭제", weedocs_delete_path %>
+<br />
+검색
+
+-대분류: 내장, 뼈/근육
+-기관
+-증상1
+-증상2
+-강도
+-원인
+-예상
+
+

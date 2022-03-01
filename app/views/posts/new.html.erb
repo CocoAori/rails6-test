@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="new.css">
 
 <form action="/posts/create" method="POST">
 	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
@@ -22,7 +23,13 @@
     <label for="English">English<input type="checkbox" name="language"></label>
     <label for="France">Français<input type="checkbox" name="language"></label>
 	
-	
+	<div class="boxes">
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+		<div class="box">4</div>
+		<div class="box">5</div>
+	</div>
 </form>
 <p>
 	<%= link_to "back", :back %>	

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_001833) do
+ActiveRecord::Schema.define(version: 2022_03_01_150451) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 2022_02_20_001833) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "weedocs", force: :cascade do |t|
+    t.string "category"
+    t.string "organ"
+    t.string "sign1"
+    t.string "sign2"
+    t.string "strong"
+    t.string "cause"
+    t.string "expect"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "comments", "blogs"

@@ -1,0 +1,2 @@
+class Weedoc < ApplicationRecord
+end

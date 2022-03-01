@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'weedocs/index' => "weedocs#index"
+  get 'weedocs/add'
+  get 'weedocs/delete'
   resources :blogs do
 	  resources :comments
   end

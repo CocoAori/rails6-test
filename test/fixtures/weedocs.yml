@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  organ: MyString
+  sign1: MyString
+  sign2: MyString
+  strong: MyString
+  cause: MyString
+  expect: MyString
+
+two:
+  category: MyString
+  organ: MyString
+  sign1: MyString
+  sign2: MyString
+  strong: MyString
+  cause: MyString
+  expect: MyString
