@@ -7,7 +7,7 @@
 	rails g model Weedoc category organ sign1 sign2 strong cause expect
 </div>
 <%= link_to "추가", weedocs_add_path %>  &nbsp;&nbsp;
-<%= link_to "삭제", weedocs_delete_path %>
+<!--<%= link_to "삭제", weedocs_delete_path %>-->
 <br />
 검색
 
@@ -20,3 +20,89 @@
 -예상
 
 
+검색 -대분류: 내장, 뼈/근육 -기관 -증상1 -증상2 -강도 -원인 -예상
+rails g model Weedoc category organ sign1 sign2 strong cause expect
+<hr />
+
+<% @weedocs.each do |weedoc| %>
+	<%= weedoc.id %>
+	<br>
+	<%= weedoc.category%>
+	<br>
+<% end %>
+
+<select>
+	<% @weedocs.each do |weedoc| %>
+		<option value="<%= weedoc.id %>"> <%= weedoc.category %>
+	<% end %>
+</select>
+	
+
+<% def wow1 a,b 
+	c = a + b
+	return c
+end %>
+	<%= @weedocs.size %>
+, 
+<%= @weedocs.class %>
+<br>
+<%= Weedoc.where(id: 3) %>
+<%= Weedoc.find(3).category %>
+<br >
+<%= @wee2 = Weedoc.select(:category).distinct %>
+<% @wee2.each do |weedoc| %>
+	<%= weedoc.category%>
+	<br>
+<% end %>
+<%= @wee2.class %>
+<hr >
+<%= @wee3 = Weedoc.where(organ: "폐").select(:cause).distinct %>
+<br >
+<% @wee3.each do |weedoc| %>
+	<%= weedoc.cause%>
+	<br>
+<% end %>
+
+<br >
+<%= Weedoc.where(id: 3).to_sql %>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+
+<table border=1>
+  <head>
+    <tr>
+	  <th>번호</th>
+	  <th>id</th>
+	  <th>대분류</th>
+      <th>기관</th>
+	  <th>증상1</th>
+	  <th>증상2</th>
+	  <th>강도</th>
+	  <th>원인</th>
+	  <th>예상</th>
+    </tr>
+  </head>
+
+  <body>
+    <% @weedocs.each_with_index do |weedoc, index| %>
+      <tr>
+		<td><%= index+1 %></td>
+		<td><%= weedoc.id %></td>
+		<td><%= weedoc.category %></td>
+        <td><%= weedoc.organ %></td>
+		<td><%= weedoc.sign1 %></td>
+		<td><%= weedoc.sign2 %></td>
+		<td><%= weedoc.strong %></td>
+		<td><%= weedoc.cause %></td>
+		<td><%= weedoc.expect %></td>
+		<td><%= link_to("delete", "/weedocs/delete/#{weedoc.id}", method: :delete, data: { confirm: "delete?"}) %></td>
+    <% end %>
+  </body>
+</table>
