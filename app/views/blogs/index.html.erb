@@ -8,6 +8,8 @@
 		padding-right: 15px;
 		font-family: 'Cute Font', cursive;
 		font-size: 20px;
+		word-break: break-word;
+		
 	}
 	th{
 		padding-top: 10px;
@@ -22,7 +24,7 @@
 	}
 	#show {
 		
-		width: 600px;
+		width: 700px;
 		height: 50%;
 		border: 5px double brown;
 		background-color: skyblue;
@@ -66,8 +68,8 @@
 		<table>
 			<tr>
 			  <th width=10px>No.</th>
-			  <th width=200px>Title</th>
-			  <th width=100px>작성자</th>
+			  <th width=280px><center>Title</center></th>
+			  <th width=140px><center>작성자</center></th>
 			  <th width=50px>date</th>
 			  <th></th>
 			</tr>
@@ -79,8 +81,8 @@
 			  <% if @blogs[i+p] %>
 			  <tr>
 				<td><%= i + p + 1 %></td>
-				<td><font size=5px><b><%= link_to "#{@blogs[i+p].title[0..10]}", @blogs[i+p] %><%= "..." if @blogs[i+p].title.length > 10 %></b></font> <font color="palevioletred" size=3px> [<%= @blogs[i+p].comments.count %>]</font> </td>
-				<td><%= @blogs[i+p].writer %></td>
+				<td><font size=5px><b><%= link_to "#{@blogs[i+p].title[0..15]}", @blogs[i+p] %><%= "..." if @blogs[i+p].title.length > 10 %></b></font> <font color="palevioletred" size=3px> [<%= @blogs[i+p].comments.count %>]</font> </td>
+				<td><center><%= @blogs[i+p].writer %></center></td>
 				<td><font size=2px><%= @blogs[i+p].created_at.strftime "%m月%d日" %></font></td>
 				<td> 💕<b><%= Like.where(blog_id: @blogs[i+p].id).count %></b></td>
 			  </tr>
