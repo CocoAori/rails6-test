@@ -10,6 +10,10 @@ class BlogsController < ApplicationController
     #@blogs = Blog.all
 	#@blogs = Blog.all.order(created_at: "ASC")
 	@blogs = Blog.all.order(:created_at)
+	 
+	  #page20220305
+	  @pages = params[:pages].to_i
+	  
   end
 
   # GET /blogs/1

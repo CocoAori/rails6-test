@@ -1,5 +1,51 @@
 <%= render 'header' %>
 
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+	
+	td{
+		padding-left: 15px;
+		padding-right: 15px;
+		font-family: 'Cute Font', cursive;
+		font-size: 20px;
+	}
+	th{
+		padding-top: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-bottom: 10px;
+		font-family: 'Cute Font', cursive;
+		font-size: 30px;
+	}
+	a{
+		text-decoration: none;
+	}
+	#show {
+		
+		width: 600px;
+		height: 50%;
+		border: 5px double brown;
+		background-color: skyblue;
+		display: inline-block;
+		text-align: left;
+	}
+	
+	#show > #pages{
+		text-align: center;
+		padding: 10px;
+	}
+	
+	#show2{
+		display: none;
+	}
+
+	.diary{
+		text-align: center;
+	}
+	
+</style>
+
+<body>
 <p id="notice"><%= notice %></p>
 
 <h1>한문장일기(1文章日記）</h1>
@@ -12,49 +58,81 @@
 <%= link_to '그냥글쓰기(書き込み)', new_blog_path, class: 'btn', style: 'color:green; font-size:14px;' %>	
 <% end %>
 
-<style>
-th, td{padding-left: 20px;
-		padding-left: 30px;}
-	a{
-		text-decoration: none;
-	}
-</style>
-
 <hr />
 
-<table>
-  <head>
-    <tr>
-	  <th>No.</th>
-      <th>Title</th>
-	  <th>작성자</th>
-	  <th>date</th>
-      <th colspan="3"></th>
-    </tr>
-  </head>
+<div class="diary">
 
-  <body>
-    <% @blogs.each_with_index do |blog, index| %>
-      <tr>
-		<td><%= index+1 %></td>
-        <td><%= link_to "#{blog.title}", blog %></td>
-		<td><%= blog.writer %></td>
-		<td><%= blog.created_at.strftime "%m月%d日" %></td>
-		<td> 💕<b><%= Like.where(blog_id: blog.id).count %></b></td>
-		<!--
-		<td><%= link_to 'Show', blog %></td>
-		<td><%= link_to(blog) do %>
-		    <%= blog.title %>
-		    <% end %>
-		  </td>
-		-->
-      </tr>
-    <% end %>
-  </body>
-</table>
+	<div id="show">
+		<table>
+			<tr>
+			  <th width=10px>No.</th>
+			  <th width=200px>Title</th>
+			  <th width=100px>작성자</th>
+			  <th width=50px>date</th>
+			  <th></th>
+			</tr>
+		
+			<% page = @pages %>
+			<% page_size = 10 %>
+			<% p = page * page_size %>
+			<% for i in (0...page_size) %> 
+			  <% if @blogs[i+p] %>
+			  <tr>
+				<td><%= i + p + 1 %></td>
+				<td><font size=5px><b><%= link_to "#{@blogs[i+p].title[0..10]}", @blogs[i+p] %><%= "..." if @blogs[i+p].title.length > 10 %></b></font> <font color="palevioletred" size=3px> [<%= @blogs[i+p].comments.count %>]</font> </td>
+				<td><%= @blogs[i+p].writer %></td>
+				<td><font size=2px><%= @blogs[i+p].created_at.strftime "%m月%d日" %></font></td>
+				<td> 💕<b><%= Like.where(blog_id: @blogs[i+p].id).count %></b></td>
+			  </tr>
+			  <% end %>
+			<% end %>
 
-<br>
+		 </table>
+		
+		<div id="pages">
+		<% for i in (1..@blogs.size/page_size+1) %>
+			<b><%= link_to "【#{i}】", blogs_path(pages: i-1) %></b>
+		<% end %>	
+		</div>
+		
+		<br>
+	</div>
+	 
+	<div id="show2">
+		<table>
+			<tr>
+			  <th>No.</th>
+			  <th>Title</th>
+			  <th>작성자</th>
+			  <th>date</th>
+			  <th></th>
+			</tr>
 
+			<% @blogs.each_with_index do |blog, index| %> 
+			  <tr>
+				<td><%= index+1 %></td>
+				<td><font size=5px><b><%= link_to "#{blog.title[0..10]}", blog %><%= "..." if blog.title.length > 10 %></b></font> <font color="palevioletred" size=3px> [<%= blog.comments.count %>]</font> </td>
+				<td><%= blog.writer %></td>
+				<td><font size=2px><%= blog.created_at.strftime "%m月%d日" %></font></td>
+				<td> 💕<b><%= Like.where(blog_id: blog.id).count %></b></td>
+				<!--
+				<td><%= link_to 'Show', blog %></td>
+				<td><%= link_to(blog) do %>
+					<%= blog.title %>
+					<% end %>
+				  </td>
+				-->
+			  </tr>
+			<% end %>
+		  
+		</table>
+		
 
+		<br>
+	</div>
+
+	
+</div>
+</body>
 
 

@@ -56,10 +56,10 @@ end %>
 <% end %>
 <%= @wee2.class %>
 <hr >
-<%= @wee3 = Weedoc.where(organ: "폐").select(:cause).distinct %>
+<%= @wee3 = Weedoc.where(category: "내장").select(:sign1).distinct %>
 <br >
 <% @wee3.each do |weedoc| %>
-	<%= weedoc.cause%>
+	<%= weedoc.sign1%>
 	<br>
 <% end %>
 

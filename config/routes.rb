@@ -24,4 +24,8 @@ Rails.application.routes.draw do
 	post "blogs/:blog_id/likes/create" => "likes#create"
 	post "blogs/:blog_id/likes/destroy" => "likes#destroy"
 	
+	# post하면 토큰이 필요하네. get하면 https에서 http로 자동으로 가버리네?
+	#get "blogs/:blog_id/likes/create" => "likes#create"
+	#get "blogs/:blog_id/likes/destroy" => "likes#destroy"
+	
 end
