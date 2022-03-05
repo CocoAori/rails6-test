@@ -47,7 +47,7 @@
 	
 </style>
 
-<body>
+
 <p id="notice"><%= notice %></p>
 
 <h1>한문장일기(1文章日記）</h1>
@@ -92,10 +92,16 @@
 		 </table>
 		
 		<div id="pages">
-		<% for i in (1..@blogs.size/page_size+1) %>
+		<% for i in (1..(@blogs.size/page_size.to_f).ceil) %>
+			<% if i-1 == page %>
+			<%= i %>
+			<% else %>
 			<b><%= link_to "【#{i}】", blogs_path(pages: i-1) %></b>
+			<% end %>
 		<% end %>	
 		</div>
+
+		
 		
 		<br>
 	</div>
@@ -135,6 +141,6 @@
 
 	
 </div>
-</body>
+
 
 

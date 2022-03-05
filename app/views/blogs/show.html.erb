@@ -31,7 +31,7 @@
 <hr />
 
 <p>
-<%= link_to 'Back', blogs_path %>	
+<%= link_to 'Back', :back %>	
 &nbsp;&nbsp;
 <% if @blog.writer == login_ID %>
 	<%= link_to 'Edit', edit_blog_path(@blog, pw_check: @blog.passwd) %>
