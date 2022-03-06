@@ -18,28 +18,93 @@
 
 <hr style="border:solid 3px #228B22">
 
-<table border="1">
-	<tr>
-		<th>id</th>
-		<th>title</th>
-		<th>content</th>
-		<th>create time</th>
-		<!--th>modify time</th-->
-		<th>link</th>
-		<!--th>writer</th-->
-	</tr>
-	<% @posts.each do |post| %>
-	<tr>
-		<td><%= post.id %></td>
-		<td><%= post.title %></td>
-		<td><%= post.content %></td>
-		<td><%= post.created_at %></td>
-		<!--td><%= post.updated_at %></td-->
-		<td><a href="/posts/show/<%= post.id %>">show</a>
-			<a href="/posts/edit/<%= post.id %>">edit</a>
-			<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/posts/destroy/<%= post.id %>">delete</a>
-			<!--%= link_to "delete2",xxx, method: :delete, data: { confirm: "Are you sure?"} %></td -->
-		<!--td><%= post.writer %></td-->
-	</tr>
-	<% end %>
-</table>
+<div class="notice_index">
+	<div class="notice">
+		<table border="1">
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>content</th>
+				<th>create time</th>
+				<!--th>modify time</th-->
+				<th>link</th>
+				<!--th>writer</th-->
+			</tr>
+			<% @posts.each do |post| %>
+			<tr>
+				<td><%= post.id %></td>
+				<td><%= post.title %></td>
+				<td><%= post.content %></td>
+				<td><%= post.created_at %></td>
+				<!--td><%= post.updated_at %></td-->
+				<td><a href="/posts/show/<%= post.id %>">show</a>
+					<a href="/posts/edit/<%= post.id %>">edit</a>
+					<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/posts/destroy/<%= post.id %>">delete</a>
+					<!--%= link_to "delete2",xxx, method: :delete, data: { confirm: "Are you sure?"} %></td -->
+				<!--td><%= post.writer %></td-->
+			</tr>
+			<% end %>
+		</table>
+	</div>
+	
+	<div class="memopaper" onmouseleave="memoOut()" >
+		<div>
+			<label onclick="memoshow(this)" >💡Memo📌</label>
+			<hr />
+		</div>
+		<div class="memo" id="memo" onclick="memowrite(this)">
+			<lable id="memo2">1. db안 쓰고 저장 방법? <br>
+2. 공백, 엔터 문제 <br>
+3. 자잘한 보이는 문제</lable>
+		</div>
+		<div >
+			<center><textarea name="memoContent" id="memoContent" style="display: none; width:280px; height:210px; " > </textarea></center>
+			<br>
+			<center><input type="button" id="memoButton" onclick="memoButton()"  style="display: none;" value="ok"></center>
+		</div>
+		
+	</div>
+</div>
+
+
+<script type="text/javascript">
+			function memoOut(){
+				if( document.getElementById("memoContent").style.display == 'block'){
+					document.getElementById("memo").style.display ='block';
+					document.getElementById("memoContent").style.display ='none';
+					document.getElementById("memoButton").style.display ='none';	
+				}			
+				
+			}
+		
+			function memowrite(){
+				if(document.getElementById("memoContent").style.display == 'none'){
+					document.getElementById("memo").style.display ='none';
+					document.getElementById("memoContent").style.display ='block';
+					document.getElementById("memoButton").style.display ='block';
+					document.getElementById("memoContent").value = document.getElementById("memo2").innerText;
+				} else{
+					document.getElementById("memoContent").style.display ='none';		
+				}
+			}
+	
+			function memoshow(){
+				if(document.getElementById("memo").style.display == 'none'){
+					document.getElementById("memo").style.display ='block';			
+				} else{
+					document.getElementById("memo").style.display ='none';	
+				}
+			}
+	
+			function memoButton(e){
+				document.getElementById("memo").style.display ='block';
+				document.getElementById("memo").innerText = document.getElementById("memoContent").value;
+				
+				document.getElementById("memoContent").style.display ='none';
+				document.getElementById("memoButton").style.display ='none';
+				
+				
+			}
+	
+</script>
+		

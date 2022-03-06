@@ -1,3 +1,104 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.box{
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	background-color: chocolate;
+}
+.box:hover{
+	background-color: darkcyan;
+}
+
+.box:active{
+	background-color: blueviolet;
+	border: 2px solid pink;
+	font-size:30px;
+	font-weight: bold;
+	color: yellow;
+	text-decoration: line-through;
+
+}
+
+.boxes div:nth-child(1){
+	background-color: yellowgreen;
+}
+
+.boxes div:last-child:hover{
+	width: 100px;	
+	height: 100px;
+	background-color:crimson;
+	border: 10px dashed black;
+	border-top-left-radius: 20px;
+}
+
+.boxes div:nth-child(3){
+	padding: 10px 5px;
+}
+.boxes div:nth-child(4){
+	margin: 10px 5px;
+}
+
+.boxes div:nth-child(4):active{
+	width: 65px;	
+	height: 65px;
+	background-color: purple;
+	color: white;
+	border: 5px double darksalmon;
+	margin: 20px 15px;
+}
+
+.notice_index{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrpa;
+	
+}
+
+.memopaper{
+	border: 2px solid darkred;
+	margin-left: 10px;
+	width: 100px;
+	height: 100px;
+	background-color: #C8FE2E;
+	text-align: center;
+	font-weight: bold;
+}
+
+.memopaper:hover{
+	border: 2px solid darkred;
+	margin-left: 10px;
+	width: 300px;
+	height: 300px;
+	background-color: #2EFEF7;
+	text-align: center;
+	font-weight: bold;
+	transition: all 2s;
+}
+
+.memopaper > .memo{
+	height: 60px;
+	display: block;	
+	overflow: hidden;
+}
+
+.memopaper > .memo:hover{
+	display: block;
+	//background-color: white;
+	//transition-delay: 1s;
+	height: 230px;
+	overflow: visible;
+	
+	//word-break: break-all;
+	// white-space: wrap;
+	// text-overflow: unset;
+}
+
+
+
+
+
+
+
