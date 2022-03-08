@@ -12,9 +12,10 @@
 <p><%= current_user.created_at %></p>
 <% end %>
 
-<a href="/posts/new">공지글쓰기(html연습)</a> &nbsp;&nbsp;&nbsp; 
-<span> <a href="/blogs">한문장일기(1文章日記)(rails연습)</a> &nbsp;&nbsp;&nbsp; </span>
-<span> <a href="/weedocs/index">Weedoc위독(javascript연습)</a> &nbsp;&nbsp;&nbsp; </span>
+<a href="/posts/new">공지글쓰기(html）</a> &nbsp;&nbsp;&nbsp; 
+<span> <a href="/blogs">한문장일기(1文章日記)(rails)</a> &nbsp;&nbsp;&nbsp; </span>
+<span> <a href="/weedocs/index">Weedoc위독(javascript)</a> &nbsp;&nbsp;&nbsp; </span>
+<span> <a href="/bang.html">방선생화실(instagram api)</a> &nbsp;&nbsp;&nbsp; </span>
 
 <hr style="border:solid 3px #228B22">
 
@@ -47,18 +48,18 @@
 		</table>
 	</div>
 	
+	
 	<div class="memopaper" onmouseleave="memoOut()" >
 		<div>
 			<label onclick="memoshow(this)" >💡Memo📌</label>
 			<hr />
 		</div>
 		<div class="memo" id="memo" onclick="memowrite(this)">
-			<lable id="memo2">1. db안 쓰고 저장 방법? <br>
-2. 공백, 엔터 문제 <br>
-3. 자잘한 보이는 문제</lable>
+			<lable id="memo2"><% memo = File.open("public/memo.txt", "r+") %><% memo.each do |line| %><%= line.chomp %><br>
+<% end %><%	memo.close %></lable>
 		</div>
 		<div >
-			<center><textarea name="memoContent" id="memoContent" style="display: none; width:280px; height:210px; " > </textarea></center>
+			<center><textarea name="memoContent" id="memoContent" style="display: none; width:280px; height:210px; "></textarea></center>
 			<br>
 			<center><input type="button" id="memoButton" onclick="memoButton()"  style="display: none;" value="ok"></center>
 		</div>
