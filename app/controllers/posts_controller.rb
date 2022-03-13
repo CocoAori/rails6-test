@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 	#protect_from_forgery except: :create
 	
   def index
-	  @posts = Post.all
+	  #@posts = Post.all
+	  @posts = Post.all.order(:created_at)
   end
 
   def new
