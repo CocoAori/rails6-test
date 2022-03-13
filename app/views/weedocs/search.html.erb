@@ -1,0 +1,111 @@
+
+
+
+<select id="select_cat" onchange="window.open(value, '_self');">
+	<option selected disabled>--대분류--</option>
+	<% @wee_category.each do |weedoc| %>
+	<option value="?category=<%=weedoc.category%>" <%= "selected" if params[:category] == weedoc.category %> > <%= weedoc.category %> </option>
+	<% end %>
+</select>
+
+
+
+<select id="select_organ" onchange="window.open(value, '_self');">
+	<option selected disabled>--<%= params[:organ] ? params[:organ] : "기관"%>--</option>
+	<% @wee_organ.each do |weedoc| %>
+	<option value="?organ=<%=weedoc.organ%>&category=<%=params[:category]%>"> <%= weedoc.organ %> </option>
+	<% end %>
+</select>
+
+
+<select id="select_sign1" onchange="window.open(value, '_self');">
+	<option selected disabled>--<%= params[:sign1] ? params[:sign1] : "증상1"%>--</option>
+	<% @wee_sign1.each do |weedoc| %>
+	<option value="?sign1=<%=weedoc.sign1%>&organ=<%=weedoc.organ%>&category=<%=params[:category]%>"> <%= weedoc.sign1 %> </option>
+	<% end %>
+</select>
+
+<select id="select_sign2" onchange="window.open(value, '_self');">
+	<option selected disabled>--<%= params[:sign2] ? params[:sign2] : "증상2"%>--</option>
+	<% @wee_sign2.each do |weedoc| %>
+	<option value="?sign2=<%=weedoc.sign2%>&sign1=<%=weedoc.sign1%>&organ=<%=weedoc.organ%>&category=<%=params[:category]%>"> <%= weedoc.sign2 %> </option>
+	<% end %>
+</select>
+
+<select id="select_strong" onchange="window.open(value, '_self');">
+	<option selected disabled>--<%= params[:strong] ? params[:strong] : "강도"%>--</option>
+	<% @wee_strong.each do |weedoc| %>
+	<option value="?strong=<%=weedoc.strong%>&sign2=<%=weedoc.sign2%>&sign1=<%=weedoc.sign1%>&organ=<%=weedoc.organ%>&category=<%=params[:category]%>"> <%= weedoc.strong %> </option>
+	<% end %>
+</select>
+
+
+
+<!--
+<br>
+<% if @wee_hash %>
+<%= @wee_hash.each_value { |v| v } %>
+<% end %>
+
+<br>
+
+<% @wee_organ.each do |weedoc| %>
+	<%= weedoc.organ %>
+<% end %>
+		 
+		<% @wee_sign1.each do |weedoc| %>
+			<%= weedoc.sign1 %>
+		<% end %>
+
+		<% @wee_sign2.each do |weedoc| %>
+			<%= weedoc.sign2 %>
+		<% end %>
+
+		<% @wee_strong.each do |weedoc| %>
+			<%= weedoc.strong %>
+		<% end %>
+
+-->
+
+<br>
+<hr>
+		<% @wee_cause.each do |weedoc| %>
+			원인 : <%= weedoc.cause %><br><hr>
+			의심 : <%= weedoc.expect %>
+		<% end %>
+
+<br>
+<hr>
+
+<!--
+개삽질의 현장... 
+전에도 썼지만, html도 javascript도 일단 한번 가져온 값에 안 에서만 동적으로 움직이는걸 알았다.
+새로 값을 가져오거나 그러기 위해선 페이지간의 속성값의 주고받음이 필요하네.
+이걸 몰라서 어찌저찌 하겠다고 개 삽질 ㅠㅠ
+
+<select id="select_cat" onchange="selectCat(this)">
+	<option value="" selected disabled>--대분류--</option>
+	<% @wee_cat = Weedoc.select(:category).distinct %>
+	<% @wee_cat.each do |weedoc| %>
+	<option value="category"><%= weedoc.category %></option>
+	<% end %>
+</select>
+
+
+<select id="select_organ" onchange="window.open(value, '_self');">
+	<option selected disabled>--기관텍스트--</option>
+	<option value="?organ=폐">폐</option>
+	<option value="?organ=발뒤꿈치">발뒤꿈치</option>
+	<option value="?organ=손가락">손가락</option>
+	<option value="?organ=위">위</option>
+</select>
+
+<br>
+<hr>
+-->
+
+<!-- 레일즈 헬퍼...이것만 잘 써도 좋을거 같은데..흠..아직 멀었따. -->
+<!-- %= collection_select(:weedoc, :category, @weedocs, :id, :category) %> -->
+
+<!-- <select name="category[organ]" id="category_organ"><option value="3">숨 쉴때 쿡쿡 아프다.</option>  -->
+<!-- %= collection_select(:category, :organ, @weedocs, :id, :sign1) %> -->

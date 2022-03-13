@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'weedocs/add'
 	post 'weedocs/add' => "weedocs#create"
 	get 'weedocs/delete'
+	get 'weedocs/search' => "weedocs#search"
   delete 'weedocs/delete/:id' => "weedocs#delete"
 	
   resources :blogs do

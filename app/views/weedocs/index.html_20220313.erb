@@ -1,0 +1,303 @@
+개삽질의 흔적 시발...
+결국 iframe으로 하다니...이게 맞나 싶네
+
+<style>
+	.weedoc{
+            display: grid;
+			grid-template-columns: repeat(2, 300px);
+            grid-template-rows: repeat(5, 50px);
+			background-color: pink;
+
+            gap: 1;
+            /* justify-items: center; */
+            /* align-items: center; */
+            
+            /* justify-content: center; */
+            /* align-content: center; */
+            /* height: 100vh; */
+        }
+	.weedoc div{
+			border: 1px solid black;
+	}
+	
+	.cause{
+		grid-column: 2/span 2;
+		grid-row: 1/span 2
+	}
+	
+	.expect{
+		grid-column: 2/span 2;
+		grid-row: 3/span 4
+		
+	}
+</style>
+
+<h1>어디가 아프십니까??</h1>
+<br />
+<%= link_to "HOME", root_path  %>
+<br />
+<hr />
+<div>
+	rails g model Weedoc category organ sign1 sign2 strong cause expect
+</div>
+<%= link_to "추가", weedocs_add_path %>  &nbsp;&nbsp;
+<!--<%= link_to "삭제", weedocs_delete_path %>-->
+<br />
+
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+검색
+
+-대분류: 내장, 뼈/근육
+-기관
+-증상1
+-증상2
+-강도
+-원인
+-예상
+
+
+검색 -대분류: 내장, 뼈/근육 -기관 -증상1 -증상2 -강도 -원인 -예상
+rails g model Weedoc category organ sign1 sign2 strong cause expect
+<hr />
+
+<% @weedocs.each do |weedoc| %>
+	<%= weedoc.id %>
+	<br>
+	<%= weedoc.category%>
+	<br>
+<% end %>
+
+<select>
+	<% @weedocs.each do |weedoc| %>
+	<option value="<%= weedoc.id %>"> <%= weedoc.category %></option>
+	<% end %>
+</select>
+	
+
+<% def wow1 a,b 
+	c = a + b
+	return c
+end %>
+	<%= @weedocs.size %>
+, 
+<%= @weedocs.class %>
+<br>
+%%%%%%
+<br>
+<%= Weedoc.where(id: 3) %>
+<%= Weedoc.find(3).category %>
+<br>
+******
+<br >
+<%= @wee2 = Weedoc.select(:category).distinct %>
+<% @wee2.each do |weedoc| %>
+	<%= weedoc.category%>
+	<br>
+<% end %>
+<%= @wee2.class %>
+<hr >
+<%= @wee3 = Weedoc.where(category: "내장").select(:sign1).distinct %>
+<br >
+$$$$$$$$$$$$$
+<%= @wee3[0].sign1 %>
+<br >
+<% @wee3.each do |weedoc| %>
+	<%= weedoc.sign1%>
+	<br>
+<% end %>
+
+<br >
+<%= Weedoc.where(id: 3).to_sql %>
+<hr >
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<div id='result'>
+	a	
+</div>
+<div id='result2'>
+	aa
+</div>
+
+
+<select id="select_cat" onchange="selectCat(this)">
+	<option value="" selected disabled>--대분류--</option>
+	<% @wee_cat = Weedoc.select(:category).distinct %>
+	<% @wee_cat.each do |weedoc| %>
+	<option value="category"><%= weedoc.category %></option>
+	<% end %>
+</select>
+
+
+
+<select class="select_org" onmouseout="" onchange="selectOrg(this)">
+	<option value="" selected disabled>--기관--</option>
+</select>
+
+
+<select class="select_sign1" onchange="selectSign1(this)">
+	<option value="" selected disabled>--증상1--</option>
+</select>
+
+
+<select class="select_sign2" onchange="selectSign2(this)">
+	<option value="" selected disabled>--증상2--</option>
+</select>
+
+
+<select class="select_sign1" onchange="selectSign(this)">
+	<option value="" selected disabled>--강도--</option>
+</select>
+
+
+
+
+<div class="weedoc">
+	<div class="category"><iframe src="search.html" name="b"  width="100%" height="100%" frameborder="0" scrolling="no"marginwidth="0" marginheight="0"></iframe></div>
+	<div class="organ"><iframe src="search.html#222" name="c"  width="100%" height="100%" frameborder="0" scrolling="no"marginwidth="0" marginheight="0"></iframe></div>
+	<div class="sign1"><iframe name="d"  width="100%" height="100%" frameborder="0" scrolling="no"marginwidth="0" marginheight="0"></iframe></div>
+	<div class="sing2">증상2</div>
+	<div class="strong">강도</div>
+	<div class="cause">원인</div>	
+	<div class="expect"><iframe src="search.html" name="b"  width="100%" height="100%" frameborder="0" scrolling="no"marginwidth="0" marginheight="0"></iframe></div>	
+</div>
+
+<!-- 문자열로 자바스크립트로 넘겨줘서 할 생각을 하다니...지금 보니 참...안 좋은 선택이었네
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<% def db_export(str)
+	
+	@wee5 = Weedoc.where(category: str).select(:organ).distinct
+	arr = []
+	brr = "[ 선택 "
+	@wee5.each do |weedoc|
+		arr << weedoc.organ
+		brr = brr + ", " + " \"#{weedoc.organ}\" "
+	end
+	brr = brr + "]"
+	return brr
+	
+end %>
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+<script type="text/javascript">
+	function selectCat(e){
+		//var catSelect = document.getElementById("select_cat");
+		//var selectText = catSelect.options[catSelect.selectedIndex].text;
+		
+		var selectCat = e.options[e.selectedIndex].text;
+		
+		document.getElementById('result2').innerText = "<%= db_export(@wee_cat[1].category) %>"
+		
+		switch(selectCat){
+			<% @wee_cat.each do | weedoc |  %>
+			case '<%= weedoc.category %>' :
+				
+				var subOption = [ '--기관--' <% Weedoc.where(category: weedoc.category).select(:organ).distinct.each do | wee | %>
+									,'<%= wee.organ %>'
+									<% end %> ];
+				break;
+			<% end %>
+
+		}
+			
+		var select = document.querySelector('.select_org')
+
+		select.options.length = 0;
+		var option = document.createElement('option');
+		//option.innerText = "---HHH---";
+		option.select = 0;
+		//select.append(option);
+		
+		document.getElementById('result').innerText = subOption[2];
+		
+		for (var i = 0; i < subOption.length; i++){
+			var option = document.createElement('option');
+			option.innerText = subOption[i];
+			select.append(option);
+		}
+	}
+	
+	
+	function selectOrg(e){
+		// 20220312 
+		// 안되는걸 알고 gg 친다. 자바스크립트도 결국 html과 같이 그 안에서 움직임은 동적이라고 할 수 있으나, 내용은 정적이네.
+		// 그 말은....처음에 로딩된 값으로만 동적으로 움직이는거네. 자바스크립트로 다시 값을 가져와서 바꾸려고 하면 안 바뀌네...
+		// 처음에 불러 온 값 중에 어느 것으로 변경되는건 가능하나, 완전히 새로운 값을 가져오거나 바꾸는건 안되네...
+		// 흠...대분류 -> 기관 으로 찾는 흐름도 결국 처음에 로딩한 값 중에 선택이 되는거지, 그 값을 새로이 불러와서 보여주는건 아니었네
+		// 결국 하나씩 검색할때마다 get으로 페이지 주고 받아야 하는건가?
+		
+		var selectOrg2 = e.options[e.selectedIndex].text;
+		document.getElementById('result2').innerText = selectOrg2;
+		
+		<% @wee_org = Weedoc.select(:organ).distinct %>
+		switch(selectOrg2){
+			<% @wee_org.each do | weedoc | %>
+			case '<%= weedoc.organ %>':
+				var subOption = [ '-증상1-' <% Weedoc.where(category: weedoc.organ).select(:sign1).distinct.each do | wee | %>
+									,'<%= wee.sign1 %>'
+									<% end %> ];
+				break;
+			<% end %>
+		}
+
+		
+		var select = document.querySelector('.select_sign1')
+
+		
+		select.options.length = 0;
+		var option = document.createElement('option');
+		option.select = 0;
+		
+		document.getElementById('result').innerText = subOption.length;
+		
+		for (var i = 0; i < subOption.length; i++){
+			var option = document.createElement('option');
+			option.innerText = subOption[i];
+			select.append(option);
+		}
+		
+	}
+	
+	
+
+</script>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+
+<table border=1>
+  <head>
+    <tr>
+	  <th>번호</th>
+	  <th>id</th>
+	  <th>대분류</th>
+      <th>기관</th>
+	  <th>증상1</th>
+	  <th>증상2</th>
+	  <th>강도</th>
+	  <th>원인</th>
+	  <th>예상</th>
+    </tr>
+  </head>
+
+  <body>
+    <% @weedocs.each_with_index do |weedoc, index| %>
+      <tr>
+		<td><%= index+1 %></td>
+		<td><%= weedoc.id %></td>
+		<td><%= weedoc.category %></td>
+        <td><%= weedoc.organ %></td>
+		<td><%= weedoc.sign1 %></td>
+		<td><%= weedoc.sign2 %></td>
+		<td><%= weedoc.strong %></td>
+		<td><%= weedoc.cause %></td>
+		<td><%= weedoc.expect %></td>
+		<td><%= link_to("delete", "/weedocs/delete/#{weedoc.id}", method: :delete, data: { confirm: "delete?"}) %></td>
+    <% end %>
+  </body>
+</table>

@@ -1,3 +1,33 @@
+<style>
+	.weedoc{
+            display: grid;
+			/* grid-template-columns: repeat(2, 300px); */
+            /* grid-template-rows: repeat(5, 50px); */
+			/* background-color: pink; */
+
+            /* justify-items: center; */
+            /* align-items: center; */
+            
+            /* justify-content: center; */
+            /* align-content: center; */
+            /* height: 100vh; */
+        }
+	.weedoc div{
+			border: 1px solid pink;
+	}
+	
+	.cause{
+		grid-column: 2/span 2;
+		grid-row: 1/span 2
+	}
+	
+	.expect{
+		grid-column: 2/span 2;
+		grid-row: 3/span 4
+		
+	}
+</style>
+
 <h1>어디가 아프십니까??</h1>
 <br />
 <%= link_to "HOME", root_path  %>
@@ -6,155 +36,21 @@
 <div>
 	rails g model Weedoc category organ sign1 sign2 strong cause expect
 </div>
+<div>
+	cloud IDE장애 생기면, 아무것도 못하네. 로컬 리눅스를 사용하는 걸 익숙해져야겠다.
+</div>
 <%= link_to "추가", weedocs_add_path %>  &nbsp;&nbsp;
 <!--<%= link_to "삭제", weedocs_delete_path %>-->
 <br />
-검색
-
--대분류: 내장, 뼈/근육
--기관
--증상1
--증상2
--강도
--원인
--예상
 
 
-검색 -대분류: 내장, 뼈/근육 -기관 -증상1 -증상2 -강도 -원인 -예상
-rails g model Weedoc category organ sign1 sign2 strong cause expect
-<hr />
-
-<% @weedocs.each do |weedoc| %>
-	<%= weedoc.id %>
-	<br>
-	<%= weedoc.category%>
-	<br>
-<% end %>
-
-<select>
-	<% @weedocs.each do |weedoc| %>
-	<option value="<%= weedoc.id %>"> <%= weedoc.category %></option>
-	<% end %>
-</select>
-	
-
-<% def wow1 a,b 
-	c = a + b
-	return c
-end %>
-	<%= @weedocs.size %>
-, 
-<%= @weedocs.class %>
-<br>
-%%%%%%
-<br>
-<%= Weedoc.where(id: 3) %>
-<%= Weedoc.find(3).category %>
-<br>
-******
-<br >
-<%= @wee2 = Weedoc.select(:category).distinct %>
-<% @wee2.each do |weedoc| %>
-	<%= weedoc.category%>
-	<br>
-<% end %>
-<%= @wee2.class %>
-<hr >
-<%= @wee3 = Weedoc.where(category: "내장").select(:sign1).distinct %>
-<br >
-$$$$$$$$$$$$$
-<%= @wee3[0].sign1 %>
-<br >
-<% @wee3.each do |weedoc| %>
-	<%= weedoc.sign1%>
-	<br>
-<% end %>
-
-<br >
-<%= Weedoc.where(id: 3).to_sql %>
-<hr >
-
-<div id='result'>
-	a	
-</div>
-<div id='result2'>
-	aa
+<div class="weedoc">
+	<div class="show"><iframe src="search.html" name="weedoc" width="100%" height="100%" frameborder="0" scrolling="no"marginwidth="0" marginheight="0"></iframe></div>	
 </div>
 
-<select id="select_cat" onchange="select_cat(this)">
-	<option value="" selected disabled>--선택--</option>
-	<% @wee3 = Weedoc.select(:category).distinct %>
-	<% @wee3.each do |weedoc| %>
-	<option value="category"><%= weedoc.category %></option>
-	<% end %>
-</select>
-
-
-
-<select class="sign1" onmouseout="" onchange="selectSign1()">
-</select>
-
-
-<select id="select_org" onchange="select_org()">
-	<% @wee4 = Weedoc.where(category: "내장").select(:organ).distinct %>
-	<% @wee4.each do |weedoc| %>
-	<option value="category"><%= weedoc.organ %></option>
-	<% end %>
-</select>
-
-
-<% def db_export(str)
-	
-	@wee5 = Weedoc.where(category: str).select(:organ).distinct
-	arr = []
-	brr = "[ 선택 "
-	@wee5.each do |weedoc|
-		arr << weedoc.organ
-		brr = brr + ", " + " \"#{weedoc.organ}\" "
-	end
-	brr = brr + "]"
-	return brr
-	
-end %>
 
 
 <script type="text/javascript">
-	function select_cat(e){
-		//var catSelect = document.getElementById("select_cat");
-		//var selectText = catSelect.options[catSelect.selectedIndex].text;
-		
-		var selectCat = e.options[e.selectedIndex].text;
-		
-		document.getElementById('result2').innerText = "<%= db_export(@wee3[1].category) %>"
-		
-		switch(selectCat){
-			<% @wee3.each do | weedoc |  %>
-			case '<%= weedoc.category %>' :
-				
-				var subOption = [ '-기관-' <% Weedoc.where(category: weedoc.category).select(:organ).distinct.each do | wee | %>
-									,'<%= wee.organ %>'
-									<% end %> ];
-				break;
-			<% end %>
-
-		}
-			
-		var select = document.querySelector('.sign1');
-
-		select.options.length = 0;
-		var option = document.createElement('option');
-		//option.innerText = "---HHH---";
-		option.select = 0;
-		//select.append(option);
-		
-		document.getElementById('result').innerText = subOption[2];
-		
-		for (var i = 0; i < subOption.length; i++){
-			var option = document.createElement('option');
-			option.innerText = subOption[i];
-			select.append(option);
-		}
-	}
 
 </script>
 
@@ -165,6 +61,8 @@ end %>
 <br />
 <hr />
 
+<button onclick=dbshow()>db</button>
+<div id="dbtable" style="display: none;">
 <table border=1>
   <head>
     <tr>
@@ -196,3 +94,14 @@ end %>
     <% end %>
   </body>
 </table>
+</div>
+
+<script type="text/javascript">
+	function dbshow(){
+		if (document.getElementById("dbtable").style.display == 'block')
+			document.getElementById("dbtable").style.display ='none';
+		else
+			document.getElementById("dbtable").style.display ='block';
+		
+	}
+</script>
