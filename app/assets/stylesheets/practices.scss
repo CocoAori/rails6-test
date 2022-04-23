@@ -1,0 +1,151 @@
+// Place all the styles related to the practices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+///animation.css
+@keyframes fadeIn{
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+
+@keyframes fadeOut {
+  from { opacity: 1;}
+  to{ opacity: 0;}
+}
+
+@-webkit-keyframes fadeIn{
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+  from { opacity: 1;}
+  to{ opacity: 0;}
+}
+
+.fadeIn{
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+.fadeOut{
+  animation: fadeOut;
+  animation-duration: 1;
+}
+
+//default.css
+/* 전체 타일 꾸미기 */
+
+body{
+  background-color: pink;
+}
+
+*{
+  font-family: 'Cute Font', cursive;
+}
+
+//main.css
+/* 메인 화면에 해당하는것만 */
+
+#main{
+  background-color: whitesmoke;
+  width: 80%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+p{
+  font-size: 20px;
+}
+
+//qnn.css
+#qna {
+  display: none;
+}
+
+.qBox {
+  background-color: whitesmoke;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.answerList {
+  background-color: whitesmoke;
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+  border: 0px;
+  font-size: 15px;
+}
+
+.answerList:hover, .answerList:focus {
+  background-color: darkgreen;
+  color: whitesmoke;
+}
+
+.status {
+  height: 20px;
+  width: 80%;
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
+.statusBar {
+  height: 100%;
+  /* width: 10%; */
+  border-radius: 20px;
+  transition: width 1s;
+
+
+
+  /* background-color: purple; */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e570e7+0,c85ec7+47,a849a3+100;Pink+3D+%233 */
+  background: #e570e7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #e570e7 0%, #c85ec7 47%, #a849a3 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #e570e7 0%, #c85ec7 47%, #a849a3 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #e570e7 0%, #c85ec7 47%, #a849a3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e570e7', endColorstr='#a849a3', GradientType=1);
+  /* IE6-9 */
+}
+
+//result.css
+#result{
+  display: none;
+  background-color: whitesmoke;
+  width: 80%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.resultname{
+  font-size: 25px;
+}
+
+.resultDesc{
+  font-size: 20px;
+}
+
+.kakao{
+  color: darkgreen;
+  background-color: #FEE500;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.kakao:hover, .kakao:focus {
+  background-color: darkgreen;
+  color: #FEE500;
+}
+
+
+
+
+
+
+
+

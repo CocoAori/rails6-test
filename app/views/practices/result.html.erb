@@ -1,0 +1,39 @@
+	<div class="notice">
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>Result</th>
+				<th>create time</th>
+				<th>delete</th>
+			</tr>
+			<% @practices.each do |practice| %>
+			<tr>
+				<td><%= practice.name %></td>
+				<td><%= practice.result %></td>
+				<td><%= practice.created_at %></td>
+				<td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/practices/delete/<%= practice.id %>">delete</a></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+
+
+
+
+		  <form action="/practices/add" method="POST">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input name="name" value="name-test" type="hidden">
+			<input name="result" value="result-test" type="hidden">
+        	<button type="submit" class="kakao mt-3 py-2 px-3">TEST</button>
+		  </form>
+
+
+<p class="kakao">
+	<%= link_to "back", :back %>	
+</p>
+
+<p>
+	<button>
+		<%= link_to "Home", root_path %>
+	</button>
+</p>

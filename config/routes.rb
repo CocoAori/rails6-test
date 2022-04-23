@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'practices/kanji'
+	get 'practices/result' => "practices#result"
+	post 'practices/add' => "practices#add"
+	delete 'practices/delete/:id' => "practices#delete"
+	
   get 'weedocs/index' => "weedocs#index"
   get 'weedocs/add'
 	post 'weedocs/add' => "weedocs#create"
@@ -28,5 +33,6 @@ Rails.application.routes.draw do
 	# post하면 토큰이 필요하네. get하면 https에서 http로 자동으로 가버리네?
 	#get "blogs/:blog_id/likes/create" => "likes#create"
 	#get "blogs/:blog_id/likes/destroy" => "likes#destroy"
+	
 	
 end

@@ -1,0 +1,417 @@
+  <head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+	  <style>
+	  	body{background-color: pink;}
+	  </style>
+  </head>
+
+    <!--
+    <div class="col-6 col-lg-12 col-md-8 col-sm-2" style="background-color:red;">
+      <p style="color:white;">p1</p>
+    </div>
+    <div class="col-4" style="background-color:blue;">
+      <p style="color:white;">p2</p>
+    </div>
+  -->
+    <div class="container">
+      <section id="main" class="mx-auto mt-4 pt-4 py-3 px-3">
+        <h1>십이간지로 알아보는 연애유형</h1>
+		  <h1>十二支で調べる恋愛類型</h1>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
+          <img src="/img/main.png" class="img-fluid" alt="mainImage">
+        </div>
+
+        <p>
+          당신은 어떤 동물일까요?<br>
+          아래 시작하기 버튼을 눌러 시작해주세요.<br>
+		　あなたはどの動物ですか？<br>
+		　スタートボタンを押してください。<br>
+        </p>
+        <button type="button" class="btn btn-outline-success mt-2" onclick="js:begin()">START</button>
+      </section>
+      <section id="qna">
+        <div class="status mx-auto mt-5">
+          <div class="statusBar">
+
+          </div>
+        </div>
+        <div class="qBox my-5 py-3 mx-auto">
+
+
+        </div>
+        <div class="answerBox">
+
+        </div>
+
+      </section>
+      <section id="result"  class="mx-auto mt-4 pt-4 py-3 px-3">
+        <h1>당신의 결과는?　その結果は？</h1>
+        <div class="resultname">
+
+        </div>
+        <div id="resultImg" class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
+
+        </div>
+        <div class="resultDesc">
+
+
+        </div>
+		  <form action="/practices/add" method="POST">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input name="name" value="12ji" type="hidden">
+			<input name="result" class="result12"type="hidden">
+        	<button type="submit" class="kakao mt-3 py-2 px-3">FINISH</button>
+		  </form>
+
+		</section>
+		
+    </div>
+
+<a href="/practices/result">.</a>
+
+
+<script type="text/javascript">	
+	
+		//data.js
+
+	/*
+ 'mouse', 0
+ 'cow', 1
+ 'tiger', 2
+ 'rabbit', 3
+ 'dragon', 4
+ 'snake', 5
+ 'horse', 6
+ 'sheep', 7
+ 'monkey', 8
+ 'chick', 9
+ 'dog', 10
+ 'pig', 11
+*/
+const qnaList = [
+  {
+    q: '1. 이성 사이에 진정한 친구는 있다, 없다?  異性の間に本当の友達はいる、いない？',
+    a: [
+      { answer: 'a. 이성 사이에 친구가 어딨어? 절대 없어  異性の間に友達がどこにいるの？ 絶対にない。', type: [1, 2, 4, 9] },
+      { answer: 'b. 친구 있지, 절대 이성으로만 안 보일뿐  友達はいるよ、絶対理性にだけ見えないだけで', type: [0, 3,6, 5, 10, 8] },
+      { answer: 'c. 난 잘 모르겠어..　よく分からない。', type: [7, 11 ] },
+    ]
+  },
+  {
+    q: '2. 좋아하는 사람이 생겨 연락하고자 한다　好きな人ができて連絡しようと思う ',
+    a: [
+      { answer: 'a. 바로 먼저 연락한다.　すぐに連絡する。', type: [0, 3, 2, 8] },
+      { answer: 'b. 언제 연락할지, 어떻게 말할지 심사숙고하여 연락한다.　いつ連絡するか、どう言うかじっくり考えて連絡する。', type: [1,6, 5, 10] },
+      { answer: 'c. 상대방에게 먼저 연락 올 때까지 기다린다.　相手から先に連絡が来るまで待つ。', type: [7, 4, 9, 11] },
+    ]
+  },
+  {
+    q: '3. 당신의 고백 스타일은?　あなたの告白スタイルは？',
+    a: [
+      { answer: 'a. 호감이 보이면 바로 고백한다　好感が持てばすぐ告白する', type: [1, 3, 2, 10, 8] },
+      { answer: 'b. 상대방이 고백할 때까지 기다린다　相手が告白するまで待つ', type: [7, 9, 11] },
+      { answer: 'c. 완벽한 분위기, 완벽한 타이밍에서 고백한다.　完璧な雰囲気、完璧なタイミングで告白する。', type: [0,6, 5, 4] }
+    ]
+  },
+  {
+    q: '4. 호감가는 고백 멘트를 고른다면?　好感のある告白コメントを選ぶとしたら？',
+    a: [
+      { answer: 'a. 박력 그 자체, "야 나랑 사귀자" 　迫力そのもの、「おい、僕と付き合おう」', type: [1, 2, 4 ] },
+      { answer: 'b. 섬세한 "나 너 많이 좋아해, 나랑 사귈래?"  繊細な「私、あなたのこと大好き。私と付き合ってくれない？', type: [7, 10, 8, 9, 11 ] },
+      { answer: 'c. 센스있는 "우리 내일은 연인으로 만날까요" 　センスのある『明日は恋人で会いましょうか』', type: [0, 3,6, 5 ] },
+    ]
+  },
+  {
+    q: '5. 오늘 연인과 첫 데이트 하는 날이다. 첫 날 허용할 수 있는 스킨십의 범위는?　今日は恋人と初デートする日だ。 初日に許容できるスキンシップの範囲は？',
+    a: [
+      { answer: 'a. 쑥스러워.. 손 잡기 정도??　恥ずかしい…手を握る程度？', type: [1, 7, 10, 4, 9 ] },
+      { answer: 'b. 요즘 시대가 어느 때인데, 가벼운 뽀뽀까지 가능이야　今の時代は、軽いキスまで可能だ', type: [0, 3,6, 11]},
+      { answer: 'c. 어차피 내 연인인데 왜?? 모든 스킨십 다 돼!　どうせ私の恋人なのにどうして？？ すべてのスキンシップになる！', type: [2, 5, 8] },
+    ]
+  },
+
+  {
+    q: '6. 기념일이 다가온다. 당신은 어떻게 할 것인가? (ex - 100, 200일)　記念日が近づく. あなたはどうする？(ex-100,200日)',
+    a: [
+      { answer: 'a. 무슨 기념일이야, 그냥 평소처럼 해　何の記念日だよ、いつものようにして', type: [4, 9, 11 ] },
+      { answer: 'b. 맛있는 밥이나 사줄까? 아니면 꽃이라도?　おいしいご飯でもおごってあげようか。 それとも花でも？', type: [0, 3,6, 10 ] },
+      { answer: 'c. 이미 깜짝 이벤트 다 준비해놨어　すでにサプライズイベントを準備しておいたよ', type: [1, 7, 2, 5, 8 ] },
+    ]
+  },
+  {
+    q: '7. 연인이 오늘 머리를 바꾸고 옷도 새로 샀다　恋人が今日髪を変えて服も新しく買った',
+    a: [
+      { answer: 'a. 눈치 못 채고 그냥 있는다　気づかずにただいる', type: [1, 7, 11 ] },
+      { answer: 'b. 눈치는 채나 말은 꺼내지 않는다　気付くままや言葉は出さない', type: [2, 4, 9 ] },
+      { answer: 'c. "오 대박 오늘 머리도 바꾸고 옷도 새로 샀네?"라고 하며 단번에 눈치챈다　「お、すごい。今日髪も変えて服も新しく買ったんだね？」と言って一気に気づく', type: [0, 3,6, 5, 10, 8 ] },
+    ]
+  },
+  {
+    q: '8. 연인이 데이트가 끝난 후, 집에 데려다 달라고 한다　恋人がデートが終わった後、家に連れて行ってほしいと言う',
+    a: [
+      { answer: 'a. 각자 만났던 장소에서 헤어진다.　それぞれ会った場所で別れる。', type: [0, 4, 9 ] },
+      { answer: 'b. 연인이 살고 있는 집의 역이나 정류장까지 데려다준다.　恋人が住んでいる家の駅や停留所まで送ってくれる。', type: [3, 2,6, 5, 10, 8 ] },
+      { answer: 'c. 집 앞까지 데려다준다.　家の前まで送ってくれる。', type: [1, 7, 11 ] },
+    ]
+  },
+  {
+    q: '9. 연인에게 하루종일 연락이 안 온다..　恋人から一日中連絡が来ない。',
+    a: [
+      { answer: 'a. 뭐.. 언젠가 연락 오겠지. 내가 할 일 하며 기다린다　まぁ… いつか連絡来るだろう。 「私がすべきことをして待つ」', type: [7, 0, 5, 9 ] },
+      { answer: 'b. 초조해서 마음 졸이며 인스타, 페북, 카톡 등 모든 SNS 다 들어가본다.　焦って気をもんでインスタグラム、フェイスブック、カカオトークなどすべてのSNSにアクセスする。', type: [1, 3,6, 11 ] },
+      { answer: 'c. 연인에게 연락 올 때까지 무한 카톡, 무한 전화　恋人から連絡が来るまで無限カカオトーク、無限電話', type: [2, 10, 8, 4 ] },
+    ]
+  },
+  {
+    q: '10. 연인이 연락도 없이 보고싶다고 우리집 앞에 와서 기다린다. 　恋人に連絡もなく会いたいと私の家の前に来て待つ。',
+    a: [
+      { answer: 'a. 아니 갑자기 오면 어떡해.. 하 나 준비도 안 했는데 왜 와. 짜증나네　いや、急に来たらどうするんだよ。 一つ準備もしてないのに、なんで来るんだよ。「むかつく」', type: [4, 9, 11] },
+      { answer: 'b. 아 그래?? 나 할 것들 좀만 마무리하고 나갈게　あ、そう？僕、やることを少しだけ仕上げていくよ。', type: [0, 2,6, 5 ] },
+      { answer: 'c. 헐 대박, 어디야?? 당장 나갈게!　やばい、どこ？ 「すぐに出るよ！」', type: [1, 7, 3, 10, 8 ] },
+    ]
+  },
+  {
+    q: '11. 내가 추구하는 연애관은? 　私が追求する恋愛観は？',
+    a: [
+      { answer: 'a. 각자 할 것 하며, 평안하고 안정적인 연애가 좋다.　各自やること、安らかで安定した恋愛が好きだ。', type: [1, 4, 9, 11 ] },
+      { answer: 'b. 보고싶을 때 보고, 데이트도 많이 하고 꽁냥꽁냥하는 연애가 좋아.　会いたい時に会って、デートもたくさんして仲良くする恋愛が好き。', type: [7, 0, 3,6, 10] },
+      { answer: 'c. 연애는 마음가는대로! 불타오르는 연애가 최고지.　恋愛は気の向くままに! 燃える恋愛が最高だ。', type: [2, 5, 8 ] },
+    ]
+  },
+  {
+    q: '12. 연인과 데이트 도중 화를 참을 수 없을만큼 심하게 싸웠다. 어떻게 할 것인가?　恋人とデートの途中、怒りに耐えられないほど激しく戦った。 「どうするのか？」',
+    a: [
+      { answer: 'a. "아 화나네. 따라오지마 오늘 집 갈 거니까." 라고 말하며 집으로 간다.　あ、怒ったわ。 「ついて来ないで、今日家に帰るから」と言いながら家に帰る。」', type: [3,6, 4, 9 ] },
+      { answer: 'b. "야! 너 화내지마. 너 잘못이지. 내가 뭘 잘못했는데?" 소리지르며 끝까지 불같이 화낸다　お前怒るなよ。 お前のせいだよ。 私が何か悪いことをしたの？ 「叫びながら最後まで火のように怒る」.', type: [0, 2, 5, 10, 8] },
+      { answer: 'c. "아니 그건 아니고, 하.." 조용히 운다.　『いや、そうじゃなくて、はぁ…』『静かに泣く』', type: [1, 7, 11] },
+    ]
+  }
+]
+
+const infoList = [
+  {
+    name: '연애 뭐 식은 죽 먹기죠, 연애 재능 만땅 <쥐><br>　恋愛は朝飯前です。恋愛才能満タン<ネズミ>',
+    desc: '연애의 프로재능러인 당신! 쥐에 해당하는 당신은 연애의 모든 것들을 알고 있어, 쉽게 연애에 성공하는 스타일이랍니다. 주로 포부가 크고 성격이 낙천적인 성향을 가지고 있고, 논리적이면서 두뇌회전이 매우 빠르다고 할 수 있어요. 말재주 또한 좋아 사교성이 좋고 유쾌하지만 화려한 것을 좋아해 허영심을 부리거나 사치를 부리기 때문에 이 점들을 주의해야 돼요. 뛰어난 능력에 자만하는 경우도 종종 있기 때문에 겸손이 필요하답니다!<br> 　恋愛のプロ才能人のあなた！ネズミに該当するあなたは恋愛のすべてを知っていて、簡単に恋愛に成功するスタイルなんですよ。 主に抱負が大きくて性格が楽天的な性向を持っていて、論理的で頭脳回転がとても早いと言えます。 言葉遣いも上手で社交性が良く愉快だが、派手なことが好きで虚栄心を張ったり贅沢をするため、この点に注意しなければなりません。 優れた能力にうぬぼれることもしばしばあるので謙遜が必要です！'
+  },
+  {
+    name: '난 너만 봐, 정직한 연애 스타일의 <소><br>　私はあなただけを見て、正直な恋愛スタイルの<牛>',
+    desc: '연애 유형의 진국인 당신! 소에 해당하는 당신은 상대방만 바라보는 해바라기 연애 스타일이랍니다. 매사에 끈기가 있어 연애를 할 때 성실하고 진심을 다하는 성향을 가지고, 온화하며 따뜻한 마음을 가지고 있어요. 한 번 좋아하면 끝까지 좋아하는 의리파지만 자존심이 쌔 은근히 고집이 강하답니다. 또한 욱하는 성질이 있어 이런 부분들을 조심해야 하고, 질투심이 많아 사랑이 집착으로 바뀔 수 있어 주의해야 된답니다!<br> 　恋愛タイプの本気であるあなた！牛に該当するあなたは相手だけを見つめるひまわり恋愛スタイルです。 何事にも根気があり、恋愛をする時に誠実で真心を尽くす性向を持ち、穏やかで暖かい心を持っています。 一度好きになると最後まで好きな義理派ですが、プライドが高いです。 また、かっとなる性質があるため、このような部分に気を付けなければならず、嫉妬心が強く、愛に執着することもあるので注意しなければなりません!'
+  },
+  {
+    name: '야 사귀자, 사랑을 쟁취하는 <호랑이><br>　付き合おう、愛を勝ち取る<虎>',
+    desc: '한 번 좋아하는 사람이 있으면 내 사람으로 만드는 당신! 호랑이에 해당하는 당신은 썸부터 사랑까지 한 번에 직진하는 스타일이랍니다. 연애할 때 주로 이끄는 성향을 가지고 있고, 시원시원한 성격과 유쾌한 성격을 가지고 있어요. 대쪽같은 성격에다 실수를 용납하는 대인배지만 유혹에 약하고 허영때문에 들뜨는 성격이라 다른 이성의 접근에 주의해야 돼요. 또한 내가 한 말로 인해 상대방이 상처를 받을 수 있기 때문에, 항상 말 조심이 필요하답니다!<br>　一度好きな人がいれば私の人にするあなた！虎に該当するあなたは、サムから愛まで一度に直進するスタイルです。 恋愛する時主に導く性向を持っていて,凉しい性格と愉快な性格を持っています。 竹を割ったような性格で、ミスを許す対人背ですが、誘惑に弱く虚栄のため浮かれている性格なので、他の異性の接近に注意しなければなりません。 また、私が言った言葉によって相手が傷つくことがあるので、いつも言葉に気をつけてください！'
+  },
+  {
+    name: '이건 어때? 난 어때? 독특한 매력을 가진 <토끼><br>　「これはどう？私はどう？」 独特な魅力を持つ<ウサギ>',
+    desc: '상대방을 홀리게 만드는 당신! 신비롭고 독특한 매력을 가져, 상대방이 푹 빠지게 만드는 스타일이에요. 직감이 발달되어 손재주가 뛰어난 편이고, 연애할 때 통통 튀는 모습들을 많이 보여준답니다. 유순하고 낙천적인 성향이지만, 자칫잘못하면 상대방에게 천진난만한 아이처럼 보일 수 있는 점을 주의해야 돼요. 또한 감정 기복이 심한 편이라 변덕스러운 마음을 가질 수 있어, 이런 부분들에 신경을 쓴다면 좋은 연애를 할 수 있어요.<br>　相手を惑わすあなた！神秘的で独特な魅力を持ち、相手を魅了するスタイルです。 直感が発達して手先が器用で、恋愛をする時に弾む姿を多く見せてくれます。 柔順で楽天的な性向ですが、ややもすると相手に無邪気な子供のように見えることに注意しなければなりません。 また感情の起伏が激しい方なので気まぐれな心を持つことができ、このような部分に気をつければいい恋愛ができます。'
+  },
+  {
+    name: '결혼은 언제쯤 할까 신혼여행은 어디로?, 이상적인 연애관의 소유자 <용><br>　結婚はいつ頃するのか新婚旅行はどこに？理想的な恋愛観の持ち主<龍>',
+    desc: '상대방과의 미래를 꿈꾸는 당신! 현실적인 연애보다는, 미래에 대한 이상적인 연애관을 가지고 있어요. 매일매일 사랑하는 사람과 보낼 미래를 생각하기 때문에, 좋은 신랑감이 될 수 있는 자질이 있답니다. 또한 일적으로나 사랑으로나 야망이 커, 크게 성공할 확률이 높고 리더십이 매우 뛰어나답니다. 다만 높은 이상에 비해서 현실이 자신의 마음에 들지 않으면 허세를 부리거나 사람들을 무시하는 경우가 많으니 이점들을 주의하면 좋을 것 같아요!<br>　「相手との未来を夢見るあなた！」 現実的な恋愛よりは未来に対する理想的な恋愛観を持っています。 毎日愛する人と過ごす未来を思うので、良い花婿になれる資質があります。 また仕事的にも愛でも野望が大きく、大きく成功する確率が高くリーダーシップが非常に優れています。 ただ、高い理想に比べて現実が自分の気に入らないと見栄を張ったり、人々を無視する場合が多いので、この点に注意すればいいと思います！'
+  },
+  {
+    name: '기념일에 무슨 이벤트 할까, 이벤트 플래너 <뱀><br>　記念日に何のイベントをしようか、イベントプランナー<蛇>',
+    desc: '상대방의 기념일을 챙기며 깜짝 놀라게 하는 당신!, 아이디어가 뛰어나고 남다른 감각이 있어, 상대방에게 많은 이벤트를 해주는 스타일이에요. 연애할 때 눈치도 빠르고, 감동을 줄 수 있어 상대방이 매일 행복하답니다. 전체적으로 화려한 연애를 하지만, 은근히 비밀이 많고 우유부단한 성격을 가지고 있답니다. 또한 귀가 매우 얇아 남의 이야기를 곧이 곧대로 믿어, 상대방을 의심하기도 하기 때문에 조심해야 된답니다!<br>　相手の記念日を祝ってびっくりさせるあなた！アイデアに優れ、特別な感覚があり、相手に多くのイベントをしてあげるスタイルです。 恋愛をする時、気付くのが早くて感動を与えることができて、相手が毎日幸せです。 全体的に派手な恋愛をしますが、密かに秘密が多く優柔不断な性格を持っています。 また、耳が非常に薄いため、他人の話をありのまま信じ、相手を疑うこともあるので気をつけなければなりません！'
+  },
+  {
+    name: '어 오늘 머리 바꿨네 잘 어울린다, 센스가 뛰어난 <말><br>　あ、今日髪を変えたんだ。似合ってる、センスのいい<馬>',
+    desc: '연애할 때, 센스가 넘쳐나는 당신! 말재주가 뛰어나며 처세술이 뛰어나, 상대방의 호감을 금방 얻는답니다. 낙천적이고 유연한 성격을 가지고 있으며, 구속받는 것을 싫어하는 스타일이에요. 소중한 사람들을 위해 희생할 줄도 알지만, 쾌략 지향적인 경우가 많아 사치와 허영에 물드는 경우가 다반수입니다. 한탕 주의에 빠져 쉽게 망가질 수 있기 때문에 이 점을 주의해야 된답니다!<br>　恋愛する時、センスあふれるあなた！言葉遣いが上手で処世術に優れ、すぐ相手の好感を得られます。 楽天的で柔軟な性格を持っており、拘束されることを嫌うスタイルです。 大切な人のために犠牲になることもありますが、快略志向的な場合が多く、ぜいたくや虚栄に染まる場合がほとんどです。 一発主義に陥って壊れやすいので、この点に注意する必要があります！'
+  },
+  {
+    name: '난 너랑 하는 것들 다 좋아, 순종적인 <양><br>　私はあなたとすること全部好き。従順な<羊>',
+    desc: '연애할 때 모든 걸 맞춰주려고 하는 당신! 다정한 느낌과 상냥한 모습을 가지고 있어, 상대방 입장에서 편안한 느낌을 받을 수 있답니다. 타오르는 연애보다는 안정적인 연애를 추구하고, 상대방에게 마음을 여는 순간 진심으로 사랑에 푹 빠질 수 있습니다. 또한 강인한 생존력과 수완이 좋으나, 한편으로는 자신이 원하는 바를 모두 쟁취하려는 고집이 있어요. 이 고집이 심해지면 다른 사람 눈에서는 계산적인 사람처럼 보여 매력을 잃을 수 있습니다!<br>　恋愛する時、すべてを合わせようとするあなた！優しい印象と優しい姿を持っているので、相手の立場で楽に感じることができます。 燃え上がる恋愛よりも安定した恋愛を追求し、相手に心を開いた瞬間、心から恋に落ちることがあります。 また、強靭な生存力と手腕がありますが、一方では自分が望むことをすべて勝ち取ろうとするこだわりがあります。 このこだわりがひどくなると、他人の目からは計算的な人のように見えて魅力を失う恐れがあります！'
+  },
+  {
+    name: '난 당신의 연예인, 끼가 넘치는 재주꾼 <원숭이><br>　私はあなたの芸能人、才能あふれる芸妓<猿>',
+    desc: '지치고 힘들 때 언제나 행복을 주는 당신! 정말 끼가 많고 말재주가 많다보니 팔방미인이라는 소리를 많이 듣는 편이랍니다. 또한 다재다능하고 총명하여 어떤 일이든지 잘할 수 있고, 유머 감각도 뛰어나 주변 사람들이 많이 따르는 마당발 타입입니다. 연애할 때 상대방의 기분을 잘 맞춰주고 즐거운 분위기를 유지하나, 다소 본인의 체면을 중시하는 경향이 있어요. 이 점 때문에 잔머리를 굴리다 타인에게 교활하다는 인상을 주게 될 수도 있기 때문에 조금 조심하면 좋을 것 같아요!<br>　疲れてつらい時にいつも幸せをくれるあなた！本当に才能があり、話術が多いので八方美人とよく言われます。 また多芸多才で聡明でどんな仕事でもこなすことができ、ユーモア感覚も優れているため、周りの人にたくさん付きまとうタイプです。 恋愛する時、相手の気持ちをよく合わせてくれて楽しい雰囲気を維持しますが、多少本人の体面を重視する傾向があります。 この点で小細工をすると、他人にずる賢い印象を与えることもあるので、少し気をつけるといいですよ！'
+  },
+  {
+    name: '이건 이거고 저건 저거지 , 공과사 확실한 <닭><br>　これはこれで、あれはあれだよ。工科大学は確かな<ニワトリ>',
+    desc: '깔끔한 연애를 추구하며 맺고 끊는 것이 확실한 당신! 단아하고 고고한 이미지를 가지고 있어 우아한 매력을 표출하는 편이랍니다. 집중력과 기억력이 좋아 상대방과 있었던 일들을 다 기억해주는 편이고, 겉으로는 무뚝뚝하나 은근히 감수성이 풍부하답니다. 다만 자신이 생각한 선을 벗어나면 냉소적으로 바뀌고, 평소 직설적인 편이라 차갑다는 인상을 많이 줄 수 있어요. 섬세한 사람이기 때문에 예민한 경우가 많으니 마음을 평안히 다스리고, 상대방에게 좀만 더 따뜻하게 대하면 좋을 것 같아요!<br>　きれいな恋愛を追求し、結ぶことが確実なあなた！上品で孤高のイメージを持っており、優雅な魅力を表現する方です。 集中力と記憶力が優れていて、相手とあったことを全て覚えてくれる方で、表向きには無愛想だが、それとなく感受性が豊かです。 ただ、自分が思った線を外れると冷笑的に変わり、普段からストレートな方なので冷たいという印象を与えることができます。 繊細な人なのでデリケートな場合が多いので心を落ち着かせて、相手にもう少し暖かく接するといいと思いますよ！'
+  },
+  {
+    name: '난 네가 좋아 너무 좋아, 애교만땅 <개><br>　私はあなたが好き。大好き。愛嬌たっぷり<犬>',
+    desc: '애교쟁이 그 자체인 당신! 둥글둥글하게 처세를 잘 하고, 붙임성이 매우 좋아 사교성이 매우 뛰어난 편이랍니다. 또한 궁금한 것을 참지 못해 호기심이 많고, 강아지같이 상대방에게 찰싹 달라붙는 것을 좋아하는 스타일이에요. 성격이 매우 쾌활하나, 감정의 기복이 은근히 심해 상대방이 하는 말에 대해 크게 상처받는 편입니다. 또한 성격이 급한 경우가 많아, 차분하게 행동을 하지 못하는 편이기 때문에 이 점을 좀만 조심하면 좋을 것 같아요!<br> 　愛嬌たっぷりのあなた！丸々と世渡りが上手で愛想がとても良くて社交性がとても優れています。 また気になることを我慢できず好奇心旺盛で、犬のように相手にぴったりフィットするのが好きなスタイルです。 性格はとても快活ですが、感情の起伏がそれとなく激しく、相手の言うことに対して大きく傷つく方です。 また、せっかちな場合が多く、物静かに行動できない方なので、この点を少しだけ気をつけるといいと思います！'
+  },
+  {
+    name: '산은 산이요 연애는 연애로다, 느긋하고 온순한 <돼지><br>　山は山であり、恋愛は恋愛である、のんびりしておとなしい<猪>',
+    desc: '단아하고 고상한 품격을 가진 당신! 마음을 먹을 때 느긋하게 행동하고, 상대방에 대한 배려가 상당히 많아 온화한 성품을 가지고 있어요. 또한 솔직한 성격으로 신뢰를 받을 수 있는 타입이며, 어떠한 일을 하든 책임감이 강해 무사히 마무리한답니다. 현실적인 성향이 강해 실리를 잘 챙기나, 표현력이 다소 부족해 상대방이 사랑받는다는 감정을 못 느낄수도 있어요. 은근히 질투심이 강하고 고지식한 면이 강해, 누가 자기에게 잘못하면 지구 끝까지 복수 할 수 있을 정도이기 때문에 이 점을 조심해야 한답니다!<br> 　上品で上品な品格を持つあなた！ 決心する時にのんびり行動し、相手に対する配慮がかなり多く穏やかな性格を持っています。 また率直な性格で信頼を受けることができるタイプで,どんな仕事をしても責任感が強くて無事に仕上げます. 現実的な性向が強くて実利をよく取りそらえるが、表現力が多少足りなくて相手が愛されるという感情を感じられないかもしれません。 何気に嫉妬心が強く生真面目な面が強く、誰かが自分に間違えば地球の果てまで復讐できるほどだからこの点に気をつけなければなりません!'
+  },
+]
+
+
+
+
+//start.js	
+const main = document.querySelector("#main");
+const qna = document.querySelector("#qna");
+const result = document.querySelector("#result")
+const endPoint = qnaList.length;
+//const select = [];
+const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+function calResult(){
+  /*
+  var pointArray = [
+    { name: 'mouse', value: 0, key: 0 },
+    { name: 'cow', value: 0, key: 1 },
+    { name: 'tiger', value: 0, key: 2 },
+    { name: 'rabbit', value: 0, key: 3 },
+    { name: 'dragon', value: 0, key: 4 },
+    { name: 'snake', value: 0, key: 5 },
+    { name: 'horse', value: 0, key: 6 },
+    { name: 'sheep', value: 0, key: 7 },
+    { name: 'monkey', value: 0, key: 8 },
+    { name: 'chick', value: 0, key: 9 },
+    { name: 'dog', value: 0, key: 10 },
+    { name: 'pig', value: 0, key: 11 },
+  ]
+
+  for(let i=0; i < endPoint; i++){
+    var target = qnaList[i].a[select[i]];
+    for(let j=0; j < target.type.length; j++){
+      for(let k=0; k < pointArray.length; k++){
+        if(target.type[j] === pointArray[k].name){
+          pointArray[k].value += 1;
+        }
+      }
+    }
+  }
+
+  var resultArray = pointArray.sort(function (a,b){
+    if(a.value > b.value){
+      return -1;
+    }
+    if(a.value < b.value){
+      return 1;
+    }
+    return 0;
+  });
+
+  */
+
+  /*
+  console.log(resultArray);
+  let resultword = resultArray[0].key;
+  return resultword;
+ */
+
+  var result = select.indexOf(Math.max(...select));
+  console.log(result);
+  return result;
+
+}
+
+function setResult(){
+  let point = calResult();
+  const resultName = document.querySelector('.resultname');
+  resultName.innerHTML = infoList[point].name;
+
+  var resultImg = document.createElement('img');
+  const imgDiv = document.querySelector('#resultImg');
+  var imgURL = '/img/image-' + point + '.png';
+  resultImg.src = imgURL;
+  resultImg.alt = point;
+
+  resultImg.classList.add('img-fluid');
+  imgDiv.appendChild(resultImg);
+
+
+  const resultDesc = document.querySelector('.resultDesc');
+  resultDesc.innerHTML = infoList[point].desc;
+	
+  const result12 = document.querySelector('.result12');
+  result12.value = point;
+
+}
+
+function goResult(){
+  qna.style.WebkitAnimation = "fadeOut 1s";
+  qna.style.animation = "fadeOut 1s"
+
+  setTimeout(() => {
+    result.style.WebkitAnimation = "fadeIn 1s";
+    result.style.animation = "fadeIn 1s";
+    setTimeout(() => {
+      qna.style.display = "none";
+      result.style.display = "block";
+    }, 900)
+  })
+
+  //
+  console.log(select);
+  setResult();
+  //calResult();
+}
+
+function addAnswer(answerText, qIdx, idx){
+  var a = document.querySelector('.answerBox');
+  var answer = document.createElement('button');
+  answer.classList.add('answerList');
+  answer.classList.add('my-3');
+  answer.classList.add('py-3');
+  answer.classList.add('mx-auto');
+  answer.classList.add('fadeIn');
+  a.appendChild(answer);
+  answer.innerHTML = answerText;
+  answer.addEventListener("click", function(){
+    var children = document.querySelectorAll('.answerList');
+    for(let i = 0; i < children.length; i++){
+      children[i].disabled = true;
+      children[i].style.WebkitAnimation = "fadeOut 1s";
+      children[i].style.animation = "fadeOut 1s"
+    }
+    setTimeout(() => {
+      //select[qIdx] = idx;
+      var target = qnaList[qIdx].a[idx].type;
+      for(let j=0; j < target.length; j++){
+          select[target[j]] += 1;
+      }
+
+      for(let i = 0; i < children.length; i++){
+        children[i].style.display = 'none';
+      }
+      goNext(++qIdx);
+    }, 900)
+
+  }, false);
+
+}
+
+function goNext(qIdx){
+  if(qIdx === endPoint){
+    goResult();
+    return;
+  }
+  var q = document.querySelector('.qBox');
+  q.innerHTML = qnaList[qIdx].q;
+  for(let i in qnaList[qIdx].a){
+    addAnswer(qnaList[qIdx].a[i].answer, qIdx, i);
+  }
+  var status = document.querySelector('.statusBar');
+  status.style.width = ( (qIdx+1) / endPoint)*100 + '%';
+  //status.style.width = (100/endPoint) * (qIdx+1) + '%';
+}
+
+
+function begin(){
+  main.style.WebkitAnimation = "fadeOut 1s";
+  main.style.animation = "fadeOut 1s"
+
+  setTimeout(() => {
+    qna.style.WebkitAnimation = "fadeIn 1s";
+    qna.style.animation = "fadeIn 1s";
+    setTimeout(() => {
+      main.style.display = "none";
+      qna.style.display = "block";
+    }, 100)
+    let qIdx = 0;
+    goNext(qIdx);
+  }, 800 );
+
+}
+	
+</script>
